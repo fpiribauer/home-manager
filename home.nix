@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
-
+let
+  pkgsUnstable = import <nixpkgs> {};
+in
 {
+  imports = [
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "piri";
@@ -80,10 +84,35 @@
     initExtra = builtins.readFile ~/dotfiles/bash/bashrc;
   };
 
+  #nixpkgs.overlays = [
+  #  (final: prev: {
+  #    powerline-go = pkgsUnstable.powerline-go;
+  #  })
+  #];
+  nixpkgs.overlays = [
+    (final: prev: {
+      powerline-go = pkgsUnstable.powerline-go.overrideAttrs (o: {
+        patches = (o.patches or [ ]) ++ [ ./powerline.patch ];
+      });
+    })
+  ];
+  programs.powerline-go = {
+    enable = true;
+    modules = [
+      "venv"
+      "cwd"
+      "perms"
+      "git"
+      "exit"
+    ];
+  };
+
   programs.vim = {
     enable = true;
     extraConfig = builtins.readFile ~/dotfiles/vim/vimrc;
     plugins = with pkgs.vimPlugins; [ vim-gruvbox8 ];
   };
+
+
 
 }
