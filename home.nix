@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, unstablePkgs, dotfiles, ... }:
 let
   a = 1;
   #pkgsUnstable = import <nixpkgs> {};
@@ -82,7 +82,7 @@ in
   #bash stuff
   programs.bash = {
     enable = true;
-    #initExtra = builtins.readFile $HOME/dotfiles/bash/bashrc;
+    initExtra = builtins.readFile "${dotfiles}/bash/bashrc";
   };
 
   #nixpkgs.overlays = [
@@ -91,13 +91,13 @@ in
   #  })
   #];
 
-  #nixpkgs.overlays = [
-  #  (final: prev: {
-  #    powerline-go = pkgsUnstable.powerline-go.overrideAttrs (o: {
-  #      patches = (o.patches or [ ]) ++ [ ./powerline.patch ];
-  #    });
-  #  })
-  #];
+  nixpkgs.overlays = [
+    (final: prev: {
+      powerline-go = unstablePkgs.powerline-go.overrideAttrs (o: {
+        patches = (o.patches or [ ]) ++ [ ./powerline.patch ];
+      });
+    })
+  ];
   programs.powerline-go = {
     enable = true;
     modules = [
@@ -111,7 +111,7 @@ in
 
   programs.vim = {
     enable = true;
-    #extraConfig = builtins.readFile $HOME/dotfiles/vim/vimrc;
+    extraConfig = builtins.readFile "${dotfiles}/vim/vimrc";
     plugins = with pkgs.vimPlugins; [ vim-gruvbox8 ];
   };
 
