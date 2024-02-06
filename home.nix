@@ -1,10 +1,11 @@
-{ config, pkgs, unstablePkgs, dotfiles, ... }:
-let
-  a = 1;
-  #pkgsUnstable = import <nixpkgs> {};
-in
 {
+  pkgs,
+  unstablePkgs,
+  dotfiles,
+  ...
+}: {
   imports = [
+    ./neovim.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -20,6 +21,7 @@ in
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
+  fonts.fontconfig.enable = true;
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -27,6 +29,12 @@ in
     # # "Hello, world!" when run.
     anki
     pyenv
+    (
+      nerdfonts.override
+      {
+        fonts = ["FiraCode"];
+      }
+    )
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -72,9 +80,9 @@ in
   #
   #  /etc/profiles/per-user/piri/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    EDITOR = "vim";
-  };
+  #home.sessionVariables = {
+  #  EDITOR = "vim";
+  #};
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -94,7 +102,7 @@ in
   nixpkgs.overlays = [
     (final: prev: {
       powerline-go = unstablePkgs.powerline-go.overrideAttrs (o: {
-        patches = (o.patches or [ ]) ++ [ ./powerline.patch ];
+        patches = (o.patches or []) ++ [./powerline.patch];
       });
     })
   ];
@@ -109,12 +117,9 @@ in
     ];
   };
 
-  programs.vim = {
-    enable = true;
-    extraConfig = builtins.readFile "${dotfiles}/vim/vimrc";
-    plugins = with pkgs.vimPlugins; [ vim-gruvbox8 ];
-  };
-
-
-
+  #programs.vim = {
+  #  enable = true;
+  #  extraConfig = builtins.readFile "${dotfiles}/vim/vimrc";
+  #  plugins = with pkgs.vimPlugins; [ vim-gruvbox8 ];
+  #};
 }
