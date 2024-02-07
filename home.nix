@@ -5,7 +5,8 @@
   ...
 }: {
   imports = [
-    ./neovim.nix
+    ./nvim/neovim.nix
+    ./sway/sway.nix
   ];
   home.username = "piri";
   home.homeDirectory = "/home/piri";

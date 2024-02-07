@@ -13,12 +13,12 @@
       {
         plugin = lualine-nvim;
         type = "lua";
-        config = rf nvim/lualine.lua;
+        config = rf ./lualine.lua;
       } # Status Line
       {
         plugin = nvim-treesitter.withAllGrammars; # Syntax Highlighting
         type = "lua";
-        config = rf nvim/treesitter.lua;
+        config = rf ./treesitter.lua;
       }
       {
         plugin = bufferline-nvim;
@@ -37,7 +37,7 @@
       {
         plugin = telescope-nvim;
         type = "lua";
-        config = rf nvim/telescope.lua;
+        config = rf ./telescope.lua;
       }
       plenary-nvim
       markdown-preview-nvim # Markdown Preview
@@ -56,8 +56,8 @@
         '';
       }
     ];
-    extraLuaConfig = rf nvim/config.lua;
-    extraConfig = rf nvim/config.vimrc;
+    extraLuaConfig = rf ./config.lua;
+    extraConfig = rf ./config.vimrc;
     extraPackages = with pkgs; [
       ripgrep # Requirement for telescope
     ];

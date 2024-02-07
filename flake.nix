@@ -12,12 +12,16 @@
       url = "github:fpiribauer/dotfiles";
       flake = false;
     };
+    nixGL = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, dotfiles, ... }:
+  outputs = { nixpkgs, home-manager, dotfiles, nixGL, ... }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = nixpkgs.legacyPackages.${system} // { overlays = [ nixGL.overlay ]; };
     in {
       homeConfigurations."piri" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -25,7 +29,7 @@
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [ ./home.nix ];
-        extraSpecialArgs = { inherit dotfiles; unstablePkgs=pkgs; };
+        extraSpecialArgs = inputs // { unstablePkgs=pkgs; };
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
