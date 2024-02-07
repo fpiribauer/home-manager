@@ -19,7 +19,7 @@
     (
       nerdfonts.override
       {
-        fonts = ["FiraCode" "JetBrainsMono" "Iosevka" "CascadiaCode"];
+        fonts = ["FiraCode" "JetBrainsMono" "Iosevka" "CascadiaCode" "CascadiaMono"];
       }
     )
   ];
