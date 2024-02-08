@@ -12,16 +12,17 @@
       url = "github:fpiribauer/dotfiles";
       flake = false;
     };
-    nixGL = {
-      url = "github:nix-community/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nix-colors.url = "github:misterio77/nix-colors";
+    # nixGL = {
+    #   url = "github:nix-community/nixGL";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
-  outputs = { nixpkgs, home-manager, dotfiles, nixGL, ... }@inputs:
+  outputs = { nixpkgs, home-manager, dotfiles, ... }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system} // { overlays = [ nixGL.overlay ]; };
+      pkgs = nixpkgs.legacyPackages.${system}; # // { overlays = [ nixGL.overlay ]; };
     in {
       homeConfigurations."piri" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
