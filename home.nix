@@ -6,15 +6,20 @@
 }: {
   imports = [
     ./nvim/neovim.nix
-    ./sway/sway.nix
+#    ./sway/sway.nix honestly its a mess, so we just use system way with its config...
   ];
+  
+  home.stateVersion = "23.11"; # Please read the comment before changing.
   home.username = "piri";
   home.homeDirectory = "/home/piri";
+  home.file.".config/sway/" = {
+    source = "${dotfiles}/sway/";
+    recursive = true;
+  };
 
-  home.stateVersion = "23.11"; # Please read the comment before changing.
 
   fonts.fontconfig.enable = true;
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
     anki
     pyenv
     (
@@ -23,7 +28,11 @@
         fonts = ["FiraCode" "JetBrainsMono" "Iosevka" "CascadiaCode" "CascadiaMono"];
       }
     )
-  ];
+    nixd
+    ruff-lsp
+    pyright
+  ]);
+
 
   programs.home-manager.enable = true;
 
@@ -31,6 +40,8 @@
     enable = true;
     initExtra = builtins.readFile "${dotfiles}/bash/bashrc";
   };
+
+
 
   nixpkgs.overlays = [
     (final: prev: {

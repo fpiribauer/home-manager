@@ -55,6 +55,22 @@
           require('Comment').setup()
         '';
       }
+      {
+        plugin = nvim-lspconfig;
+        type = "lua";
+        config = rf ./lspconfig.lua;
+      }
+      {
+        plugin = nvim-cmp;
+        type = "lua";
+        config = rf ./nvim-cmp.lua;
+      }
+      cmp-nvim-lsp
+      cmp-buffer
+      cmp-path
+      cmp-cmdline
+      vim-vsnip
+      cmp-vsnip
     ];
     extraLuaConfig = rf ./config.lua;
     extraConfig = rf ./config.vimrc;
