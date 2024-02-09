@@ -46,6 +46,7 @@
         type = "lua";
         config = ''
           vim.cmd[[colorscheme gruvbox-material]]
+          vim.cmd[[highlight Normal ctermbg=NONE guibg=NONE]]
         '';
       }
       {

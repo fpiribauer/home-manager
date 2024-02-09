@@ -15,6 +15,7 @@ in
     ./nvim/neovim.nix
 #    ./wayland/sway.nix honestly its a mess, so we just use system way with its config...
     ./wayland/kanshi.nix
+    ./wayland/waybar.nix
   ];
   
   home.stateVersion = "23.11"; # Please read the comment before changing.
@@ -24,6 +25,9 @@ in
     #source = "${dotfiles}/sway/";
     #recursive = true;
     text = myutils.replaceBase16 (builtins.readFile "${dotfiles}/sway/config");
+  };
+  home.file.".config/sway/wallpaper.jpg" = {
+    source = "${dotfiles}/sway/wallpaper.jpg";
   };
 
   colorScheme = nix-colors.colorSchemes.gruvbox-material-dark-medium;
@@ -41,6 +45,7 @@ in
     ruff-lsp
     pyright
     kanshi
+    pavucontrol
   ]);
 
   systemd.user.targets = {
@@ -68,10 +73,10 @@ in
     settings = {
       main = {
         term = "xterm-256color";
-        font = "CaskaydiaMonoNerdFont:size=10";
+        font = "CaskaydiaMonoNerdFontPropo:size=10";
       };
       colors = let cp = config.colorscheme.palette; in {
-        alpha = 0.8;
+        alpha = 0.95;
         foreground=cp.base05;
         background=cp.base00;
         regular0=cp.base00; # black
