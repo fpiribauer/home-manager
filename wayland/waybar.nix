@@ -6,7 +6,7 @@
     style = ./waybar.css;
     settings = {
       mainBar = {
-        layer = "top";
+        layer = "bottom";
         position = "top";
         output = [
           "DP-3" "DP-4" "DP-5"
