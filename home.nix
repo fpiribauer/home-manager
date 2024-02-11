@@ -30,6 +30,10 @@ in
     source = "${dotfiles}/sway/wallpaper.jpg";
   };
 
+  home.sessionPath = [
+    "/opt/intelFPGA/20.1/modelsim_ase/bin"
+  ];
+
   colorScheme = nix-colors.colorSchemes.gruvbox-material-dark-medium;
   fonts.fontconfig.enable = true;
   home.packages = (with pkgs; [
