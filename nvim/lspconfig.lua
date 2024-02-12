@@ -7,8 +7,31 @@ lspconfig.svls.setup { capabilities = capabilities }
 lspconfig.tsserver.setup {}
 lspconfig.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
+  capabilities = capabilities,
   settings = {
-    ['rust-analyzer'] = {},
+    ['rust-analyzer'] = {
+      cargo = {
+        buildScripts = {
+          enable = true,
+        },
+        extraEnv = {
+          ["CARGO_PROFILE_RUST_ANALYZER_INHERITS"] = "dev",
+        },
+        extraArgs = { "--profile", "rust-analyzer" },
+        features = "all",
+      },
+      check = {
+        overrideCommand = { "cargo", "clippy", "--message-format=json", "--all-targets", "--all-features" },
+      },
+      rustfmt = {
+        extraArgs = { "+nightly" },
+      },
+      procMacro = {
+        attributes = {
+          enable = true,
+        },
+      },
+    },
   },
 }
 
@@ -16,8 +39,8 @@ lspconfig.rust_analyzer.setup {
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev(); vim.cmd.normal('zz') end)
+vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next(); vim.cmd.normal('zz') end)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys

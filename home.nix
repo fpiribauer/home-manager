@@ -50,6 +50,7 @@ in
     pyright
     kanshi
     pavucontrol
+    rust-analyzer
   ]);
 
   systemd.user.targets = {
