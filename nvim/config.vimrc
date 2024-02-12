@@ -15,6 +15,8 @@ au FileType c setlocal tabstop=2 shiftwidth=2
 au FileType java setlocal tabstop=2 shiftwidth=2
 au FileType markdown setlocal spell
 au FileType markdown setlocal tabstop=2 shiftwidth=2
+au FileType systemverilog setlocal tabstop=2 shiftwidth=2
+au FileType verilog setlocal tabstop=2 shiftwidth=2
 au CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})
 au BufRead,BufNewFile *.wiki setlocal textwidth=80 spell tabstop=2 shiftwidth=2
 au FileType xml setlocal tabstop=2 shiftwidth=2
