@@ -29,6 +29,9 @@ in
   home.file.".config/sway/wallpaper.jpg" = {
     source = "${dotfiles}/sway/wallpaper.jpg";
   };
+  home.file.".config/tms/config.toml" = {
+    source = "${dotfiles}/tms/config.toml";
+  };
 
   home.sessionPath = [
     "/opt/intelFPGA/20.1/modelsim_ase/bin"
@@ -51,6 +54,7 @@ in
     kanshi
     pavucontrol
     rust-analyzer
+    tmux-sessionizer
   ]);
 
   systemd.user.targets = {
