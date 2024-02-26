@@ -4,6 +4,7 @@ lspconfig.nixd.setup { capabilities = capabilities }
 lspconfig.pyright.setup { capabilities = capabilities }
 lspconfig.ruff_lsp.setup { capabilities = capabilities }
 lspconfig.svls.setup { capabilities = capabilities }
+lspconfig.clangd.setup { capabilities = capabilities }
 lspconfig.tsserver.setup {}
 lspconfig.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
@@ -72,5 +73,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<space>f', function()
       vim.lsp.buf.format { async = true }
     end, opts)
+
+    local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+    vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup;
+        buffer = ev.buf,
+        callback = function ()
+            vim.lsp.buf.format({ bufnr = bufnr})
+        end,
+    })
+
   end,
 })

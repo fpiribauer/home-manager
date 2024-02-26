@@ -55,6 +55,7 @@ in
     pavucontrol
     rust-analyzer
     tmux-sessionizer
+    clang-tools_17
   ]);
 
   systemd.user.targets = {
