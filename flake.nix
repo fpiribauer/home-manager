@@ -13,16 +13,12 @@
       flake = false;
     };
     nix-colors.url = "github:misterio77/nix-colors";
-    # nixGL = {
-    #   url = "github:nix-community/nixGL";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
 
   outputs = { nixpkgs, home-manager, dotfiles, ... }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system}; # // { overlays = [ nixGL.overlay ]; };
+      pkgs = import nixpkgs { system = "${system}"; config = { allowUnfree = true; }; };
     in {
       homeConfigurations."piri" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;

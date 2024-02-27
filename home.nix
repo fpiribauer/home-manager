@@ -56,6 +56,7 @@ in
     rust-analyzer
     tmux-sessionizer
     clang-tools_17
+    vscode-extensions.ms-vscode.cpptools
   ]);
 
   systemd.user.targets = {
