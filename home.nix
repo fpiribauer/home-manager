@@ -48,7 +48,7 @@ in
         fonts = ["FiraCode" "JetBrainsMono" "Iosevka" "CascadiaCode" "CascadiaMono"];
       }
     )
-    nixd
+    #nixd
     ruff-lsp
     pyright
     kanshi
