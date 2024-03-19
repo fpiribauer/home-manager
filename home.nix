@@ -16,6 +16,7 @@ in
 #    ./wayland/sway.nix honestly its a mess, so we just use system way with its config...
     ./wayland/kanshi.nix
     ./wayland/waybar.nix
+    ./keybase/keybase.nix
   ];
   
   home.stateVersion = "23.11"; # Please read the comment before changing.
@@ -51,7 +52,6 @@ in
     #nixd
     ruff-lsp
     pyright
-    kanshi
     pavucontrol
     rust-analyzer
     tmux-sessionizer

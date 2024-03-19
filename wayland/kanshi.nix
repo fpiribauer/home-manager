@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 {
+  home.packages = (with pkgs; [
+    kanshi
+  ]);
   services.kanshi = {
     enable = true;
     profiles = {
@@ -79,6 +82,23 @@
           "swaymsg workspace 9, move workspace to DP-6"
           "swaymsg workspace 10, move workspace to DP-6"
           "sleep 1 && swaymsg workspace 1"
+        ];
+      };
+
+      dipl = {
+        outputs = [
+          {
+            criteria = "eDP-1";
+            status = "enable";
+            position = "0,1021";
+            mode = "1920x1080@60Hz";
+          }
+          {
+            criteria = "DP-1";
+            status = "enable";
+            position = "1920,0";
+            mode = "2560x1440@60Hz";
+          }
         ];
       };
 
