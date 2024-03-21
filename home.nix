@@ -41,6 +41,10 @@ in
   colorScheme = nix-colors.colorSchemes.gruvbox-material-dark-medium;
   fonts.fontconfig.enable = true;
   home.packages = (with pkgs; [
+    # Audio
+    pipewire
+    wireplumber
+    # User Program
     anki
     # pyenv -- time is not yet ripe enough for such powerful inventions
     (
@@ -49,6 +53,7 @@ in
         fonts = ["FiraCode" "JetBrainsMono" "Iosevka" "CascadiaCode" "CascadiaMono"];
       }
     )
+    # LSP Stuff
     #nixd
     ruff-lsp
     pyright
