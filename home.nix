@@ -62,6 +62,8 @@ in
     tmux-sessionizer
     clang-tools_17
     vscode-extensions.ms-vscode.cpptools
+    # Games
+    runelite
   ]);
 
   systemd.user.targets = {
