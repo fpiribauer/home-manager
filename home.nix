@@ -18,6 +18,7 @@ in
     ./wayland/waybar.nix
     ./keybase/keybase.nix
     ./wasm/wasm.nix
+    ./esp32/esp32.nix
   ];
   
   home.stateVersion = "23.11"; # Please read the comment before changing.
