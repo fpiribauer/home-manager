@@ -16,6 +16,7 @@ in
 #    ./wayland/sway.nix honestly its a mess, so we just use system way with its config...
     ./wayland/kanshi.nix
     ./wayland/waybar.nix
+    ./wayland/notify.nix
     ./keybase/keybase.nix
     ./wasm/wasm.nix
     ./esp32/esp32.nix
@@ -39,6 +40,9 @@ in
   home.sessionPath = [
     "/opt/intelFPGA/20.1/modelsim_ase/bin"
   ];
+  home.sessionVariables = {
+    _JAVA_AWT_WM_NONREPARENTING=1; # Makes Java GUIs work nice with sway
+  };
 
   colorScheme = nix-colors.colorSchemes.gruvbox-material-dark-medium;
   fonts.fontconfig.enable = true;
