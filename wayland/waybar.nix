@@ -15,7 +15,7 @@
           "eDP-1"
         ];
 
-        modules-left = ["sway/workspaces" "sway/mode" "cpu" "memory"];
+        modules-left = ["sway/workspaces" "sway/mode" "cpu" "memory" "custom/co2"];
         modules-center = [];
         modules-right = ["pulseaudio" "backlight" "network" "battery" "clock"];
 
@@ -30,6 +30,12 @@
           interval = 30;
           format = "  {}%";
           max-length = 10;
+        };
+
+        "custom/co2" = {
+          exec = ./display.py;
+          interval = 30;
+          format = "co2 {}ppm";
         };
 
         "pulseaudio" = {
