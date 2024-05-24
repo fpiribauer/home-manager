@@ -9,10 +9,7 @@
         layer = "bottom";
         position = "top";
         output = [
-          "DP-3" "DP-4" "DP-5"
-          "DP-6" "DP-7" "DP-8"
-          "DP-1"
-          "eDP-1"
+          "*"
         ];
 
         modules-left = ["sway/workspaces" "sway/mode" "cpu" "memory" "custom/co2"];
