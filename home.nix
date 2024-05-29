@@ -70,6 +70,7 @@ in
     vscode-extensions.ms-vscode.cpptools
     # Devops
     ansible
+    ansible-lint
     # Games
     runelite
   ]);
