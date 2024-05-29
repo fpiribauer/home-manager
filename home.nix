@@ -68,6 +68,8 @@ in
     tmux-sessionizer
     clang-tools_17
     vscode-extensions.ms-vscode.cpptools
+    # Devops
+    ansible
     # Games
     runelite
   ]);
