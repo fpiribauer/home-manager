@@ -11,6 +11,6 @@ notfy_intf = dbus.Interface(
 )
 
 
-with urllib.request.urlopen("http://192.168.0.150/") as url:
+with urllib.request.urlopen("http://192.168.1.166/") as url:
     data = json.load(url)
     print(int(data["co2Concentration"]))
