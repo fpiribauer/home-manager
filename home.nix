@@ -73,6 +73,7 @@ in
     ansible-lint
     # Games
     runelite
+    thunderbird
   ]);
 
   systemd.user.targets = {
