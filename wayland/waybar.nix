@@ -14,7 +14,7 @@
 
         modules-left = ["sway/workspaces" "sway/mode" "cpu" "memory" "custom/co2"];
         modules-center = [];
-        modules-right = ["pulseaudio" "backlight" "network" "battery" "clock"];
+        modules-right = ["pulseaudio" "backlight" "network" "battery" "custom/clock"];
 
 
         cpu = {
@@ -81,7 +81,11 @@
           "format-alt" = "{:%a, %d. %b  %H:%M}";
         };
 
-
+        "custom/clock" = {
+          "format" =  "   {}  ";
+          "interval" =  60;
+          "exec" = "date +'%d %a %H:%M'";
+        };
 
       };
     };
