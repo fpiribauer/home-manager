@@ -5,9 +5,10 @@
   ]);
   services.kanshi = {
     enable = true;
-    profiles = {
-      docked = {
-        outputs = [
+    settings = [
+      {
+        profile.name  = "docked";
+        profile.outputs = [
           {
             criteria = "DP-3";
             status = "enable";
@@ -30,7 +31,7 @@
             status = "disable";
           }
         ];
-        exec = [
+        profile.exec = [
           "swaymsg workspace 1, move workspace to DP-3"
           "swaymsg workspace 2, move workspace to DP-4"
           "swaymsg workspace 3, move workspace to DP-5"
@@ -44,10 +45,11 @@
           "sleep 1 && swaymsg workspace 1"
         ];
 
-      };
+      }
 
-      weird = {
-        outputs = [
+      {
+        profile.name = "weird";
+        profile.outputs = [
           {
             criteria = "DP-6";
             status = "enable";
@@ -70,7 +72,7 @@
             status = "disable";
           }
         ];
-        exec = [
+        profile.exec = [
           "swaymsg workspace 1, move workspace to DP-6"
           "swaymsg workspace 2, move workspace to DP-7"
           "swaymsg workspace 3, move workspace to DP-8"
@@ -83,16 +85,17 @@
           "swaymsg workspace 10, move workspace to DP-6"
           "sleep 1 && swaymsg workspace 1"
         ];
-      };
+      }
 
-      undocked = {
-        outputs = [
+      {
+        profile.name = "undocked";
+        profile.outputs = [
           {
             criteria = "eDP-1";
             status = "enable";
           }
         ];
-        exec = [
+        profile.exec = [
           "swaymsg workspace 1, move workspace to eDP-1"
           "swaymsg workspace 2, move workspace to eDP-1"
           "swaymsg workspace 3, move workspace to eDP-1"
@@ -105,8 +108,8 @@
           "swaymsg workspace 10, move workspace to eDP-1"
           "sleep 1 && swaymsg workspace 1"
         ];
-      };
-    };
+      }
+    ];
     
     #systemdTarget = "graphical-session.target";
   };
