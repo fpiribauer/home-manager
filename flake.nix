@@ -21,8 +21,7 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs { system = "${system}"; config = { allowUnfree = true; }; };
       pkgs-23-11 = import nixpkgs-23-11 { system = "${system}"; config = { allowUnfree = true; }; };
-    in {
-      homeConfigurations."piri" = home-manager.lib.homeManagerConfiguration {
+      home-manager-config = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         # Specify your home configuration modules here, for example,
@@ -33,5 +32,8 @@
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
       };
+    in {
+      homeConfigurations."piri" = home-manager-config;
+      tests = import ./tests (inputs // home-manager-config);
     };
 }

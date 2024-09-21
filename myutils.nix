@@ -1,4 +1,4 @@
-{ config, lib, nix-colors, ...}:
+{ config, nix-colors, ...}:
 let
   cp = config.colorScheme.palette; 
   colors16 = rec {

@@ -5,9 +5,9 @@
   dotfiles,
   nix-colors,
   ...
-}@input:
+}@inputs:
 let
-  myutils = import ./myutils.nix input;
+  myutils = import ./myutils.nix inputs;
 in
 {
   imports = [
@@ -21,7 +21,6 @@ in
     ./wasm/wasm.nix
     ./esp32/esp32.nix
   ];
-  
   home.stateVersion = "23.11"; # Please read the comment before changing.
   home.username = "piri";
   home.homeDirectory = "/home/piri";
@@ -44,8 +43,8 @@ in
     _JAVA_AWT_WM_NONREPARENTING=1; # Makes Java GUIs work nice with sway
   };
 
-  colorScheme = nix-colors.colorSchemes.base24.dracula;
-  #colorScheme = nix-colors.colorSchemes.base16.gruvbox-material-dark-medium;
+  #colorScheme = nix-colors.colorSchemes.base24.dracula;
+  colorScheme = nix-colors.colorSchemes.base16.gruvbox-material-dark-medium;
   fonts.fontconfig.enable = true;
   home.packages = (with pkgs; [
     # Audio
