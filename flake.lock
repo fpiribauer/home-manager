@@ -39,7 +39,9 @@
     "nix-colors": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib",
-        "schemes": "schemes"
+        "schemes": [
+          "schemes"
+        ]
       },
       "locked": {
         "lastModified": 1716489546,
@@ -108,17 +110,18 @@
         "home-manager": "home-manager",
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-23-11": "nixpkgs-23-11"
+        "nixpkgs-23-11": "nixpkgs-23-11",
+        "schemes": "schemes"
       }
     },
     "schemes": {
       "flake": false,
       "locked": {
-        "lastModified": 1713388094,
-        "narHash": "sha256-wcotm0Ek2ISn8iJBzEujJQdcPLKWrPAOZ/dS/DLKafw=",
+        "lastModified": 1725746347,
+        "narHash": "sha256-qfuu/o1pi4pImwMq+sQ85wy1g7ngPr9tFi5WfkoVGr4=",
         "owner": "tinted-theming",
         "repo": "schemes",
-        "rev": "abcf2a055ae69f1bf047463332f83db3125aa8a5",
+        "rev": "e43188f3bba5fb31d199cc82b542b13579977cb6",
         "type": "github"
       },
       "original": {

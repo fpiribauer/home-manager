@@ -103,7 +103,7 @@ in
         term = "xterm-256color";
         font = "CaskaydiaMonoNerdFontPropo:size=10";
       };
-      colors = let colors = builtins.trace config.colorScheme.palette.base0F  myutils.colors; in {
+      colors = let colors = myutils.colors; in {
         alpha = 0.95;
         foreground=colors.foreground;
         background=colors.background;
