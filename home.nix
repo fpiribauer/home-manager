@@ -93,7 +93,7 @@ in
 
   programs.bash = {
     enable = true;
-    initExtra = builtins.readFile "${dotfiles}/bash/bashrc";
+    initExtra = myutils.replaceBase16 (builtins.readFile "${dotfiles}/bash/bashrc");
   };
 
   programs.foot = {
@@ -103,7 +103,7 @@ in
         term = "xterm-256color";
         font = "CaskaydiaMonoNerdFontPropo:size=10";
       };
-      colors = let cp = config.colorscheme.palette; in {
+      colors = let cp = config.colorScheme.palette; in {
         alpha = 0.95;
         foreground=cp.base05;
         background=cp.base00;
@@ -134,22 +134,22 @@ in
   };
 
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      powerline-go = unstablePkgs.powerline-go.overrideAttrs (o: {
-        patches = (o.patches or []) ++ [./powerline.patch];
-      });
-    })
-  ];
-  programs.powerline-go = {
-    enable = true;
-    modules = [
-      "venv"
-      "cwd"
-      "perms"
-      "git"
-      "exit"
-    ];
-  };
+  #nixpkgs.overlays = [
+  #  (final: prev: {
+  #    powerline-go = unstablePkgs.powerline-go.overrideAttrs (o: {
+  #      patches = (o.patches or []) ++ [./powerline.patch];
+  #    });
+  #  })
+  #];
+  #programs.powerline-go = {
+  #  enable = true;
+  #  modules = [
+  #    "venv"
+  #    "cwd"
+  #    "perms"
+  #    "git"
+  #    "exit"
+  #  ];
+  #};
 
 }

@@ -85,23 +85,6 @@
         ];
       };
 
-      dipl = {
-        outputs = [
-          {
-            criteria = "eDP-1";
-            status = "enable";
-            position = "0,1021";
-            mode = "1920x1080@60Hz";
-          }
-          {
-            criteria = "DP-1";
-            status = "enable";
-            position = "1920,0";
-            mode = "2560x1440@60Hz";
-          }
-        ];
-      };
-
       undocked = {
         outputs = [
           {

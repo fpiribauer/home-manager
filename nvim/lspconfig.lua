@@ -1,11 +1,10 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
-lspconfig.nixd.setup { capabilities = capabilities }
+-- lspconfig.nixd.setup { capabilities = capabilities }
 lspconfig.pyright.setup { capabilities = capabilities }
 lspconfig.ruff_lsp.setup { capabilities = capabilities }
 lspconfig.svls.setup { capabilities = capabilities }
 lspconfig.clangd.setup { capabilities = capabilities }
-lspconfig.tsserver.setup {}
 lspconfig.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
   capabilities = capabilities,
