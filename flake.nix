@@ -13,7 +13,7 @@
       url = "github:fpiribauer/dotfiles";
       flake = false;
     };
-    nix-colors.url = "github:misterio77/nix-colors";
+    nix-colors.url = "github:Zh40Le1ZOOB/nix-colors";
   };
 
   outputs = { nixpkgs, nixpkgs-23-11, home-manager, dotfiles, ... }@inputs:

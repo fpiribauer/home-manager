@@ -28,7 +28,7 @@ in
   home.file.".config/sway/config" = {
     #source = "${dotfiles}/sway/";
     #recursive = true;
-    text = myutils.replaceBase16 (builtins.readFile "${dotfiles}/sway/config");
+    text = myutils.replaceTemplateColor (builtins.readFile "${dotfiles}/sway/config");
   };
   home.file.".config/sway/wallpaper.jpg" = {
     source = "${dotfiles}/sway/wallpaper.jpg";
@@ -44,7 +44,8 @@ in
     _JAVA_AWT_WM_NONREPARENTING=1; # Makes Java GUIs work nice with sway
   };
 
-  colorScheme = nix-colors.colorSchemes.gruvbox-material-dark-medium;
+  colorScheme = nix-colors.colorSchemes.base24.dracula;
+  #colorScheme = nix-colors.colorSchemes.base16.gruvbox-material-dark-medium;
   fonts.fontconfig.enable = true;
   home.packages = (with pkgs; [
     # Audio
@@ -93,7 +94,7 @@ in
 
   programs.bash = {
     enable = true;
-    initExtra = myutils.replaceBase16 (builtins.readFile "${dotfiles}/bash/bashrc");
+    initExtra = myutils.replaceTemplateColor (builtins.readFile "${dotfiles}/bash/bashrc");
   };
 
   programs.foot = {
@@ -103,53 +104,28 @@ in
         term = "xterm-256color";
         font = "CaskaydiaMonoNerdFontPropo:size=10";
       };
-      colors = let cp = config.colorScheme.palette; in {
+      colors = let colors = builtins.trace config.colorScheme.palette.base0F  myutils.colors; in {
         alpha = 0.95;
-        foreground=cp.base05;
-        background=cp.base00;
-        regular0=cp.base00; # black
-        regular1=cp.base08; # red
-        regular2=cp.base0B; # green
-        regular3=cp.base0A; # yellow
-        regular4=cp.base0D; # blue
-        regular5=cp.base0E; # magenta
-        regular6=cp.base0C; # cyan
-        regular7=cp.base05; # white
-        bright0=cp.base03; # bright black
-        bright1=cp.base08; # bright red
-        bright2=cp.base0B; # bright green
-        bright3=cp.base0A; # bright yellow
-        bright4=cp.base0D; # bright blue
-        bright5=cp.base0E; # bright magenta
-        bright6=cp.base0C; # bright cyan
-        bright7=cp.base07; # bright white
-        "16"=cp.base09;
-        "17"=cp.base0F;
-        "18"=cp.base01;
-        "19"=cp.base02;
-        "20"=cp.base04;
-        "21"=cp.base06;
-      };
+        foreground=colors.foreground;
+        background=colors.background;
+        regular0=colors.black;
+        regular1=colors.red;
+        regular2=colors.green;
+        regular3=colors.yellow;
+        regular4=colors.blue;
+        regular5=colors.purple;
+        regular6=colors.cyan;
+        regular7=colors.white;
+        bright0=colors.bright_black;
+        bright1=colors.bright_red;
+        bright2=colors.bright_green;
+        bright3=colors.bright_yellow;
+        bright4=colors.bright_blue;
+        bright5=colors.bright_purple;
+        bright6=colors.bright_cyan;
+        bright7=colors.bright_white;
+     };
     };
   };
-
-
-  #nixpkgs.overlays = [
-  #  (final: prev: {
-  #    powerline-go = unstablePkgs.powerline-go.overrideAttrs (o: {
-  #      patches = (o.patches or []) ++ [./powerline.patch];
-  #    });
-  #  })
-  #];
-  #programs.powerline-go = {
-  #  enable = true;
-  #  modules = [
-  #    "venv"
-  #    "cwd"
-  #    "perms"
-  #    "git"
-  #    "exit"
-  #  ];
-  #};
 
 }
