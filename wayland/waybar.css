@@ -182,13 +182,20 @@
     color: #TEMPLATE_COLOR_gray;
 }
 
-#workspaces button.focused {
-    border-color: #TEMPLATE_COLOR_blue;
+#workspaces button.urgent.focused {
+    border-color: #TEMPLATE_COLOR_bright_red;
     color: #TEMPLATE_COLOR_background;
-    background-color: #TEMPLATE_COLOR_blue;
+    background-color: #TEMPLATE_COLOR_bright_red;
+}
+
+#workspaces button.focused {
+    border-color: #TEMPLATE_COLOR_bright_blue;
+    color: #TEMPLATE_COLOR_background;
+    background-color: #TEMPLATE_COLOR_bright_blue;
 }
 
 #workspaces button.urgent {
-    border-color: #TEMPLATE_COLOR_red;
-    color: #TEMPLATE_COLOR_red;
+    border-color: #TEMPLATE_COLOR_bright_red;
+    color: #TEMPLATE_COLOR_bright_red;
 }
+
