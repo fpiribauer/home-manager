@@ -4,6 +4,7 @@
   config,
   dotfiles,
   nix-colors,
+  nix-index-database,
   ...
 }@inputs:
 let
@@ -12,6 +13,7 @@ in
 {
   imports = [
     nix-colors.homeManagerModules.default
+    nix-index-database.hmModules.nix-index
     ./nvim/neovim.nix
 #    ./wayland/sway.nix honestly its a mess, so we just use system way with its config...
     ./wayland/kanshi.nix

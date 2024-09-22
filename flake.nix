@@ -21,6 +21,10 @@
       url = "github:Zh40Le1ZOOB/nix-colors";
       inputs.schemes.follows = "schemes";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, nixpkgs-23-11, home-manager, dotfiles, ... }@inputs:
