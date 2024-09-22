@@ -12,23 +12,23 @@
 
 @keyframes blink-warning {
     70% {
-        color: white;
+        color: #TEMPLATE_COLOR_white;
     }
 
     to {
-        color: white;
-        background-color: orange;
+        color: #TEMPLATE_COLOR_white;
+        background-color: #TEMPLATE_COLOR_orange;
     }
 }
 
 @keyframes blink-critical {
     70% {
-      color: white;
+      color: #TEMPLATE_COLOR_white;
     }
 
     to {
-        color: white;
-        background-color: red;
+        color: #TEMPLATE_COLOR_white;
+        background-color: #TEMPLATE_COLOR_red;
     }
 }
 
@@ -48,8 +48,8 @@
 
 /* The whole bar */
 #waybar {
-    background: #323232;
-    color: white;
+    background: #TEMPLATE_COLOR_background;
+    color: #TEMPLATE_COLOR_foreground;
     font-family: Cantarell, Noto Sans, sans-serif;
     font-size: 13px;
 }
@@ -81,11 +81,11 @@
 }
 
 #battery.warning {
-    color: orange;
+    color: #TEMPLATE_COLOR_orange;
 }
 
 #battery.critical {
-    color: red;
+    color: #TEMPLATE_COLOR_red;
 }
 
 #battery.warning.discharging {
@@ -107,11 +107,11 @@
 }
 
 #cpu.warning {
-    color: orange;
+    color: #TEMPLATE_COLOR_orange;
 }
 
 #cpu.critical {
-    color: red;
+    color: #TEMPLATE_COLOR_red;
 }
 
 #memory {
@@ -121,18 +121,18 @@
 }
 
 #memory.warning {
-    color: orange;
+    color: #TEMPLATE_COLOR_orange;
 }
 
 #memory.critical {
-    color: red;
+    color: #TEMPLATE_COLOR_red;
     animation-name: blink-critical;
     animation-duration: 2s;
 }
 
 #mode {
     background: #64727D;
-    border-top: 2px solid white;
+    border-top: 2px solid #TEMPLATE_COLOR_white;
     /* To compensate for the top border and still have vertical centering */
     padding-bottom: 2px;
 }
@@ -142,7 +142,7 @@
 }
 
 #network.disconnected {
-    color: orange;
+    color: #TEMPLATE_COLOR_orange;
 }
 
 #pulseaudio {
@@ -162,7 +162,7 @@
 }
 
 #temperature.critical {
-    color: red;
+    color: #TEMPLATE_COLOR_red;
 }
 
 #tray {
@@ -184,7 +184,7 @@
 
 #workspaces button.focused {
     border-color: #4c7899;
-    color: white;
+    color: #TEMPLATE_COLOR_white;
     background-color: #285577;
 }
 

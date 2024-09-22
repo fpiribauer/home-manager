@@ -1,9 +1,12 @@
-{ config, pkgs, pkgs-23-11, ... }:
+{ config, pkgs, pkgs-23-11, ... }@inputs:
+let
+  myutils = import ../myutils.nix inputs;
+in
 {
   programs.waybar = {
     enable = true;
     systemd.enable = true;
-    style = ./waybar.css;
+    style = myutils.replaceTemplateColor (builtins.readFile ./waybar.css);
     settings = {
       mainBar = {
         layer = "bottom";
