@@ -103,18 +103,19 @@ in
         term = "xterm-256color";
         font = "CaskaydiaMonoNerdFontPropo:size=10";
       };
+      # Use the color mapping from https://github.com/tinted-theming/tinted-foot/blob/main/templates/
       colors = let colors = myutils.colors; in {
         alpha = 0.95;
         foreground=colors.foreground;
         background=colors.background;
-        regular0=colors.black;
+        regular0=colors.background;
         regular1=colors.red;
         regular2=colors.green;
         regular3=colors.yellow;
         regular4=colors.blue;
         regular5=colors.purple;
         regular6=colors.cyan;
-        regular7=colors.white;
+        regular7=colors.foreground;
         bright0=colors.bright_black;
         bright1=colors.bright_red;
         bright2=colors.bright_green;
@@ -123,6 +124,12 @@ in
         bright5=colors.bright_purple;
         bright6=colors.bright_cyan;
         bright7=colors.bright_white;
+        "16"=colors.orange;
+        "17"=colors.brown;
+        "18"=colors.black;
+        "19"=colors.bright_black;
+        "20"=colors.light_gray;
+        "21"=colors.white;
      };
     };
   };
