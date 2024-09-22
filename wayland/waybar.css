@@ -179,16 +179,16 @@
     padding-bottom: 2px;
     padding-left: 10px;
     padding-right: 10px;
-    color: #888888;
+    color: #TEMPLATE_COLOR_gray;
 }
 
 #workspaces button.focused {
-    border-color: #4c7899;
-    color: #TEMPLATE_COLOR_white;
-    background-color: #285577;
+    border-color: #TEMPLATE_COLOR_blue;
+    color: #TEMPLATE_COLOR_background;
+    background-color: #TEMPLATE_COLOR_blue;
 }
 
 #workspaces button.urgent {
-    border-color: #c9545d;
-    color: #c9545d;
+    border-color: #TEMPLATE_COLOR_red;
+    color: #TEMPLATE_COLOR_red;
 }
