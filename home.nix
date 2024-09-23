@@ -19,12 +19,7 @@ in {
     ./wasm
     ./esp32/esp32.nix
   ];
-  cst.wayland.enable = true;
-  cst.wasm.enable = true;
-
   home.stateVersion = "24.11"; # Please read the comment before changing.
-  home.username = "piri";
-  home.homeDirectory = "/home/piri";
   home.file.".config/tms/config.toml" = {
     source = "${dotfiles}/tms/config.toml";
   };
@@ -65,16 +60,13 @@ in {
     ansible
     ansible-lint
     # Games
-    runelite
+  #  runelite
     thunderbird
   ]);
 
   programs.home-manager.enable = true;
-
   programs.bash = {
     enable = true;
     initExtra = mylib.utils.replaceTemplateColor (builtins.readFile "${dotfiles}/bash/bashrc");
   };
-
-
 }

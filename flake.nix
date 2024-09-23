@@ -32,19 +32,21 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs { system = "${system}"; config = { allowUnfree = true; }; };
       pkgs-23-11 = import nixpkgs-23-11 { system = "${system}"; config = { allowUnfree = true; }; };
-      home-manager-config = home-manager.lib.homeManagerConfiguration {
+      private-config = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
+        modules = [ ./hosts/T480piri ./home.nix ];
         extraSpecialArgs = inputs // { unstablePkgs=pkgs; inherit pkgs-23-11; };
+      };
+      work-config = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
 
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+        modules = [ ./hosts/piribauer-laptop ./home.nix ];
+        extraSpecialArgs = inputs // { unstablePkgs=pkgs; inherit pkgs-23-11; };
       };
     in {
-      homeConfigurations."piri" = home-manager-config;
-      tests = import ./tests (inputs // home-manager-config);
+      homeConfigurations."piri@T480piri" = private-config;
+      homeConfigurations."fpiribauer@piribauer-laptop" = work-config;
+      tests = import ./tests (inputs // private-config);
     };
 }
