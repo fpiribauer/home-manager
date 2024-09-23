@@ -22,17 +22,9 @@ in {
   cst.wayland.enable = true;
   cst.wasm.enable = true;
 
-  home.stateVersion = "23.11"; # Please read the comment before changing.
+  home.stateVersion = "24.11"; # Please read the comment before changing.
   home.username = "piri";
   home.homeDirectory = "/home/piri";
-  home.file.".config/sway/config" = {
-    #source = "${dotfiles}/sway/";
-    #recursive = true;
-    text = mylib.utils.replaceTemplateColor (builtins.readFile "${dotfiles}/sway/config");
-  };
-  home.file.".config/sway/wallpaper.jpg" = {
-    source = "${dotfiles}/sway/wallpaper.jpg";
-  };
   home.file.".config/tms/config.toml" = {
     source = "${dotfiles}/tms/config.toml";
   };

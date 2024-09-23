@@ -1,4 +1,8 @@
-{ config, lib, ... }: {
+{ config, dotfiles, lib, ... }@inputs: 
+let 
+  mylib = import ../mylib inputs;
+in {
+
   imports = [
     ./waybar.nix
     ./kanshi.nix
@@ -24,7 +28,11 @@
         };
       };
     };
-
-
+    home.file.".config/sway/config" = {
+      text = mylib.utils.replaceTemplateColor (builtins.readFile "${dotfiles}/sway/config");
+    };
+    home.file.".config/sway/wallpaper.jpg" = {
+      source = "${dotfiles}/sway/wallpaper.jpg";
+    };
   };
 }
