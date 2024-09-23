@@ -1,95 +1,99 @@
-{ config, pkgs, pkgs-23-11, ... }@inputs:
+{ config, lib, pkgs, pkgs-23-11, ... }@inputs: 
 let
-  myutils = import ../myutils.nix inputs;
-in
-{
-  programs.waybar = {
-    enable = true;
-    systemd.enable = true;
-    style = myutils.replaceTemplateColor (builtins.readFile ./waybar.css);
-    settings = {
-      mainBar = {
-        layer = "bottom";
-        position = "top";
-        output = [
-          "*"
-        ];
+  mylib = import ../mylib inputs;
+in {
+  options = {
+    cst.waybar.enable = lib.mkEnableOption "enables waybar";
+  };
+  config = lib.mkIf config.cst.waybar.enable {
+    programs.waybar = {
+      enable = true;
+      systemd.enable = true;
+      style = mylib.utils.replaceTemplateColor (builtins.readFile ./waybar.css);
+      settings = {
+        mainBar = {
+          layer = "bottom";
+          position = "top";
+          output = [
+            "*"
+          ];
 
-        modules-left = ["sway/workspaces" "sway/mode" "cpu" "memory" "custom/co2"];
-        modules-center = [];
-        modules-right = ["pulseaudio" "backlight" "network" "battery" "custom/clock"];
+          modules-left = ["sway/workspaces" "sway/mode" "cpu" "memory" "custom/co2"];
+          modules-center = [];
+          modules-right = ["pulseaudio" "backlight" "network" "battery" "custom/clock"];
 
 
-        cpu = {
-          interval = 15;
-          format = "  {}%";
-          max-length = 10;
-        };
-
-        memory = {
-          interval = 30;
-          format = "  {}%";
-          max-length = 10;
-        };
-
-        "custom/co2" = {
-          exec = ./display.py;
-          interval = 30;
-          format = "co2 {}ppm";
-        };
-
-        "pulseaudio" = {
-          format = "{volume}% {icon}";
-          format-bluetooth = "{volume}% {icon}";
-          format-muted = "";
-          format-icons = {
-            headphone = "";
-            hands-free = "";
-            headset = "";
-            phone = "";
-            portable = "";
-            car = "";
-            default = ["" ""];
+          cpu = {
+            interval = 15;
+            format = "  {}%";
+            max-length = 10;
           };
-          scroll-step = 1;
-          on-click = "pavucontrol";
-        };
 
-        backlight = {
-          tooltip = false;
-          format = " {}%";
-          interval = 1;
-          on-scroll-up = "brightnessctl s 1515";
-          on-scroll-down = "brightnessctl s 1";
-        };
+          memory = {
+            interval = 30;
+            format = "  {}%";
+            max-length = 10;
+          };
 
-        network = {
-          format = "{ifname}";
-          format-wifi = "{essid} ({signalStrength}%) ";
-          format-ethernet = "{ipaddr}/{cidr} 󰊗";
-          format-disconnected = "󰤮"; 
-          tooltip-format = "{ifname} via {gwaddr} 󰊗";
-          tooltip-format-wifi = "{essid} ({signalStrength}%) ";
-          tooltip-format-ethernet = "{ifname} ";
-          tooltip-format-disconnected = "Disconnected";
-          max-length = 50;
-        };
+          "custom/co2" = {
+            exec = ./display.py;
+            interval = 30;
+            format = "co2 {}ppm";
+          };
 
-        battery = {
-          format = "{capacity}% {icon}";
-          "format-icons" =  ["" "" "" "" ""];
-        };
+          "pulseaudio" = {
+            format = "{volume}% {icon}";
+            format-bluetooth = "{volume}% {icon}";
+            format-muted = "";
+            format-icons = {
+              headphone = "";
+              hands-free = "";
+              headset = "";
+              phone = "";
+              portable = "";
+              car = "";
+              default = ["" ""];
+            };
+            scroll-step = 1;
+            on-click = "pavucontrol";
+          };
 
-        clock = {
-          "format-alt" = "{:%a, %d. %b  %H:%M}";
-        };
+          backlight = {
+            tooltip = false;
+            format = " {}%";
+            interval = 1;
+            on-scroll-up = "brightnessctl s 1515";
+            on-scroll-down = "brightnessctl s 1";
+          };
 
-        "custom/clock" = {
-          "format" =  "   {}  ";
-          "interval" =  60;
-          "exec" = "date +'%d %a %H:%M'";
-        };
+          network = {
+            format = "{ifname}";
+            format-wifi = "{essid} ({signalStrength}%) ";
+            format-ethernet = "{ipaddr}/{cidr} 󰊗";
+            format-disconnected = "󰤮"; 
+            tooltip-format = "{ifname} via {gwaddr} 󰊗";
+            tooltip-format-wifi = "{essid} ({signalStrength}%) ";
+            tooltip-format-ethernet = "{ifname} ";
+            tooltip-format-disconnected = "Disconnected";
+            max-length = 50;
+          };
 
+          battery = {
+            format = "{capacity}% {icon}";
+            "format-icons" =  ["" "" "" "" ""];
+          };
+
+          clock = {
+            "format-alt" = "{:%a, %d. %b  %H:%M}";
+          };
+
+          "custom/clock" = {
+            "format" =  "   {}  ";
+            "interval" =  60;
+            "exec" = "date +'%d %a %H:%M'";
+          };
+
+        };
       };
     };
   };

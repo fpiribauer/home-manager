@@ -1,11 +1,11 @@
 # Execute with nix eval .#tests
 { nix-colors, config,... }@inputs:
 let
-  myutils = import ../myutils.nix inputs;
+  mylib = import ../mylib inputs;
 in
 {
   inputs = inputs;
-  colors = myutils.colors;
+  colors = mylib.utils.colors;
   config = config;
   test=(nix-colors.lib.schemeFromYAML "hi"
 ''
