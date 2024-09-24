@@ -4,6 +4,7 @@ let
 in {
   options = {
     cst.waybar.enable = lib.mkEnableOption "enables waybar";
+    cst.waybar.co2.enable = lib.mkEnableOption "enables co2 monitoring";
   };
   config = lib.mkIf config.cst.waybar.enable {
     programs.waybar = {
@@ -18,7 +19,7 @@ in {
             "*"
           ];
 
-          modules-left = ["sway/workspaces" "sway/mode" "cpu" "memory" "custom/co2"];
+          modules-left = ["sway/workspaces" "sway/mode" "cpu" "memory" (lib.mkIf config.cst.waybar.co2.enable "custom/co2")];
           modules-center = [];
           modules-right = ["pulseaudio" "backlight" "network" "battery" "custom/clock"];
 
@@ -35,7 +36,7 @@ in {
             max-length = 10;
           };
 
-          "custom/co2" = {
+          "custom/co2" = lib.mkIf config.cst.waybar.co2.enable {
             exec = ./display.py;
             interval = 30;
             format = "co2 {}ppm";
