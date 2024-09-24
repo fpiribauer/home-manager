@@ -12,6 +12,32 @@
       enable = true;
       settings = [
       {
+        profile.name = "uniofficen";
+        profile.outputs = [
+          {
+            criteria = "eDP-1";
+            status = "disable";
+          }
+          {
+            criteria = "DP-6";
+            status = "enable";
+          }
+        ];
+      }
+      {
+        profile.name = "unioffice";
+        profile.outputs = [
+          {
+            criteria = "eDP-1";
+            status = "disable";
+          }
+          {
+            criteria = "DP-7";
+            status = "enable";
+          }
+        ];
+      }
+      {
         profile.name  = "docked";
         profile.outputs = [
         {

@@ -26,6 +26,7 @@ in {
 
   home.sessionPath = [
     "/opt/intelFPGA/20.1/modelsim_ase/bin"
+     "$HOME/.pyenv/bin"
   ];
   home.sessionVariables = {
     _JAVA_AWT_WM_NONREPARENTING=1; # Makes Java GUIs work nice with sway
@@ -59,8 +60,7 @@ in {
     # Devops
     ansible
     ansible-lint
-    # Games
-  #  runelite
+    # Mail
     thunderbird
   ]);
 
