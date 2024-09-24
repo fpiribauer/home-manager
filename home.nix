@@ -56,6 +56,7 @@ in {
     rust-analyzer
     tmux-sessionizer
     clang-tools_17
+    vscode
     vscode-extensions.ms-vscode.cpptools
     # Devops
     ansible
