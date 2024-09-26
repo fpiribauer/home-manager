@@ -18,8 +18,9 @@
       flake = false;
     };
     nix-colors = {
-      url = "github:Zh40Le1ZOOB/nix-colors";
+      url = "github:fpiribauer/nix-colors/base24";
       inputs.schemes.follows = "schemes";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
@@ -27,9 +28,10 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-23-11, home-manager, dotfiles, ... }@inputs:
+  outputs = { nixpkgs, nixpkgs-23-11, home-manager, dotfiles, nix-colors, ... }@raw_inputs:
     let
       system = "x86_64-linux";
+      inputs = raw_inputs // { nix-colors = nix-colors.instantiate { inherit system; }; };
       pkgs = import nixpkgs { system = "${system}"; config = { allowUnfree = true; }; };
       pkgs-23-11 = import nixpkgs-23-11 { system = "${system}"; config = { allowUnfree = true; }; };
       private-config = home-manager.lib.homeManagerConfiguration {
