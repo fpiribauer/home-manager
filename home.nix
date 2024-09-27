@@ -49,7 +49,7 @@ in {
       }
     )
     # LSP Stuff
-    #nixd
+    nixd
     ruff-lsp
     pyright
     pavucontrol
