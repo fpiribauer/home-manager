@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   options = {
     cst.wasm.enable = lib.mkEnableOption "enables wasm";
   };

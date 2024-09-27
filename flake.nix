@@ -28,29 +28,53 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-23-11, home-manager, dotfiles, nix-colors, ... }@raw_inputs:
+  outputs =
+    {
+      nixpkgs,
+      nixpkgs-23-11,
+      home-manager,
+      nix-colors,
+      ...
+    }@raw_inputs:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs { system = "${system}"; config = { allowUnfree = true; }; };
-      pkgs-23-11 = import nixpkgs-23-11 { system = "${system}"; config = { allowUnfree = true; }; };
-      inputs = raw_inputs // { 
+      pkgs = import nixpkgs {
+        system = "${system}";
+        config = {
+          allowUnfree = true;
+        };
+      };
+      pkgs-23-11 = import nixpkgs-23-11 {
+        system = "${system}";
+        config = {
+          allowUnfree = true;
+        };
+      };
+      inputs = raw_inputs // {
         inherit pkgs pkgs-23-11;
         unstablePkgs = pkgs;
-        nix-colors = nix-colors.instantiate { inherit system; }; 
+        nix-colors = nix-colors.instantiate { inherit system; };
       };
       private-config = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [ ./hosts/T480piri ./home.nix ];
+        modules = [
+          ./hosts/T480piri
+          ./home.nix
+        ];
         extraSpecialArgs = inputs;
       };
       work-config = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [ ./hosts/piribauer-laptop ./home.nix ];
+        modules = [
+          ./hosts/piribauer-laptop
+          ./home.nix
+        ];
         extraSpecialArgs = inputs;
       };
-    in {
+    in
+    {
       homeConfigurations."piri@T480piri" = private-config;
       homeConfigurations."fpiribauer@piribauer-laptop" = work-config;
       tests = import ./tests (inputs // private-config);

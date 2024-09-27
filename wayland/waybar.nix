@@ -1,8 +1,15 @@
-{ config, lib, pkgs, pkgs-23-11, ... }@inputs: 
+{
+  config,
+  lib,
+  pkgs,
+  pkgs-23-11,
+  ...
+}@inputs:
 let
   mylib = import ../mylib inputs;
   waybarcss = mylib.utils.renderTemplate { template = ./waybar.css; };
-in {
+in
+{
   options = {
     cst.waybar.enable = lib.mkEnableOption "enables waybar";
     cst.waybar.co2.enable = lib.mkEnableOption "enables co2 monitoring";
@@ -20,10 +27,21 @@ in {
             "*"
           ];
 
-          modules-left = ["sway/workspaces" "sway/mode" "cpu" "memory" (lib.mkIf config.cst.waybar.co2.enable "custom/co2")];
-          modules-center = [];
-          modules-right = ["pulseaudio" "backlight" "network" "battery" "custom/clock"];
-
+          modules-left = [
+            "sway/workspaces"
+            "sway/mode"
+            "cpu"
+            "memory"
+            (lib.mkIf config.cst.waybar.co2.enable "custom/co2")
+          ];
+          modules-center = [ ];
+          modules-right = [
+            "pulseaudio"
+            "backlight"
+            "network"
+            "battery"
+            "custom/clock"
+          ];
 
           cpu = {
             interval = 15;
@@ -54,7 +72,10 @@ in {
               phone = "";
               portable = "";
               car = "";
-              default = ["" ""];
+              default = [
+                ""
+                ""
+              ];
             };
             scroll-step = 1;
             on-click = "pavucontrol";
@@ -72,7 +93,7 @@ in {
             format = "{ifname}";
             format-wifi = "{essid} ({signalStrength}%) ";
             format-ethernet = "{ipaddr}/{cidr} 󰊗";
-            format-disconnected = "󰤮"; 
+            format-disconnected = "󰤮";
             tooltip-format = "{ifname} via {gwaddr} 󰊗";
             tooltip-format-wifi = "{essid} ({signalStrength}%) ";
             tooltip-format-ethernet = "{ifname} ";
@@ -82,7 +103,13 @@ in {
 
           battery = {
             format = "{capacity}% {icon}";
-            "format-icons" =  ["" "" "" "" ""];
+            "format-icons" = [
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
           };
 
           clock = {
@@ -90,8 +117,8 @@ in {
           };
 
           "custom/clock" = {
-            "format" =  "   {}  ";
-            "interval" =  60;
+            "format" = "   {}  ";
+            "interval" = 60;
             "exec" = "date +'%d %a %H:%M'";
           };
 

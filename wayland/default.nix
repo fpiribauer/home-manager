@@ -1,7 +1,13 @@
-{ config, dotfiles, lib, ... }@inputs: 
-let 
+{
+  config,
+  dotfiles,
+  lib,
+  ...
+}@inputs:
+let
   mylib = import ../mylib inputs;
-in {
+in
+{
 
   imports = [
     ./waybar.nix
