@@ -1,16 +1,17 @@
 { config, lib, pkgs, pkgs-23-11, ... }@inputs: 
 let
   mylib = import ../mylib inputs;
+  waybarcss = mylib.utils.renderTemplate { template = ./waybar.css; };
 in {
   options = {
     cst.waybar.enable = lib.mkEnableOption "enables waybar";
     cst.waybar.co2.enable = lib.mkEnableOption "enables co2 monitoring";
   };
   config = lib.mkIf config.cst.waybar.enable {
-    programs.waybar = {
+    programs.waybar = rec {
       enable = true;
       systemd.enable = true;
-      style = mylib.utils.replaceTemplateColor (builtins.readFile ./waybar.css);
+      style = waybarcss;
       settings = {
         mainBar = {
           layer = "bottom";

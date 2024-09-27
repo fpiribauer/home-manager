@@ -68,6 +68,6 @@ in {
   programs.home-manager.enable = true;
   programs.bash = {
     enable = true;
-    initExtra = mylib.utils.replaceTemplateColor (builtins.readFile "${dotfiles}/bash/bashrc");
+    initExtra = builtins.readFile (mylib.utils.renderTemplate { template ="${dotfiles}/bash/bashrc"; });
   };
 }

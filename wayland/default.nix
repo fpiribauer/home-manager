@@ -29,7 +29,7 @@ in {
       };
     };
     home.file.".config/sway/config" = {
-      text = mylib.utils.replaceTemplateColor (builtins.readFile "${dotfiles}/sway/config");
+      text = builtins.readFile (mylib.utils.renderTemplate { template = "${dotfiles}/sway/config"; });
     };
     home.file.".config/sway/wallpaper.jpg" = {
       source = "${dotfiles}/sway/wallpaper.jpg";

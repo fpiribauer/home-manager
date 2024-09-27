@@ -12,23 +12,23 @@
 
 @keyframes blink-warning {
     70% {
-        color: #TEMPLATE_COLOR_white;
+        color: #{{ color.hex.white }};
     }
 
     to {
-        color: #TEMPLATE_COLOR_white;
-        background-color: #TEMPLATE_COLOR_orange;
+        color: #{{ color.hex.white }};
+        background-color: #{{ color.hex.orange }};
     }
 }
 
 @keyframes blink-critical {
     70% {
-      color: #TEMPLATE_COLOR_white;
+      color: #{{ color.hex.white }};
     }
 
     to {
-        color: #TEMPLATE_COLOR_white;
-        background-color: #TEMPLATE_COLOR_red;
+        color: #{{ color.hex.white }};
+        background-color: #{{ color.hex.red }};
     }
 }
 
@@ -48,8 +48,8 @@
 
 /* The whole bar */
 #waybar {
-    background: #TEMPLATE_COLOR_background;
-    color: #TEMPLATE_COLOR_foreground;
+    background: #{{ color.hex.background }};
+    color: #{{ color.hex.foreground }};
     font-family: Cantarell, Noto Sans, sans-serif;
     font-size: 13px;
 }
@@ -81,11 +81,11 @@
 }
 
 #battery.warning {
-    color: #TEMPLATE_COLOR_orange;
+    color: #{{ color.hex.orange }};
 }
 
 #battery.critical {
-    color: #TEMPLATE_COLOR_red;
+    color: #{{ color.hex.red }};
 }
 
 #battery.warning.discharging {
@@ -107,11 +107,11 @@
 }
 
 #cpu.warning {
-    color: #TEMPLATE_COLOR_orange;
+    color: #{{ color.hex.orange }};
 }
 
 #cpu.critical {
-    color: #TEMPLATE_COLOR_red;
+    color: #{{ color.hex.red }};
 }
 
 #memory {
@@ -121,18 +121,18 @@
 }
 
 #memory.warning {
-    color: #TEMPLATE_COLOR_orange;
+    color: #{{ color.hex.orange }};
 }
 
 #memory.critical {
-    color: #TEMPLATE_COLOR_red;
+    color: #{{ color.hex.red }};
     animation-name: blink-critical;
     animation-duration: 2s;
 }
 
 #mode {
     background: #64727D;
-    border-top: 2px solid #TEMPLATE_COLOR_white;
+    border-top: 2px solid #{{ color.hex.white }};
     /* To compensate for the top border and still have vertical centering */
     padding-bottom: 2px;
 }
@@ -142,7 +142,7 @@
 }
 
 #network.disconnected {
-    color: #TEMPLATE_COLOR_orange;
+    color: #{{ color.hex.orange }};
 }
 
 #pulseaudio {
@@ -162,7 +162,7 @@
 }
 
 #temperature.critical {
-    color: #TEMPLATE_COLOR_red;
+    color: #{{ color.hex.red }};
 }
 
 #tray {
@@ -179,23 +179,23 @@
     padding-bottom: 2px;
     padding-left: 10px;
     padding-right: 10px;
-    color: #TEMPLATE_COLOR_gray;
+    color: #{{ color.hex.gray }};
 }
 
 #workspaces button.urgent.focused {
-    border-color: #TEMPLATE_COLOR_bright_red;
-    color: #TEMPLATE_COLOR_background;
-    background-color: #TEMPLATE_COLOR_bright_red;
+    border-color: #{{ color.hex.bright_red }};
+    color: #{{ color.hex.background }};
+    background-color: #{{ color.hex.bright_red }};
 }
 
 #workspaces button.focused {
-    border-color: #TEMPLATE_COLOR_bright_blue;
-    color: #TEMPLATE_COLOR_background;
-    background-color: #TEMPLATE_COLOR_bright_blue;
+    border-color: #{{ color.hex.bright_blue }};
+    color: #{{ color.hex.background }};
+    background-color: #{{ color.hex.bright_blue }};
 }
 
 #workspaces button.urgent {
-    border-color: #TEMPLATE_COLOR_bright_red;
-    color: #TEMPLATE_COLOR_bright_red;
+    border-color: #{{ color.hex.bright_red }};
+    color: #{{ color.hex.bright_red }};
 }
 

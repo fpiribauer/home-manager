@@ -1,11 +1,11 @@
 # Execute with nix eval .#tests
-{ nix-colors, config,... }@inputs:
+{ nix-colors, dotfiles, config,... }@inputs:
 let
   mylib = import ../mylib inputs;
 in
 {
   inputs = inputs;
-  colors = mylib.utils.colors;
+  color = mylib.utils.color;
   config = config;
   test=(nix-colors.lib.schemeFromYAML "hi"
 ''
@@ -39,4 +39,8 @@ palette:
   base16: "a3ccf5"
   base17: "f5a3d2"
 '');
+  
+  template = mylib.utils.renderTemplate {
+    template="${dotfiles}/bash/bashrc"; context = { name = "test"; };
+  };
 }
