@@ -47,11 +47,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1727378326,
-        "narHash": "sha256-3U27gxhTVWzkUm7ln/rnJqs/CFa2bLunVJjTuOcXSJQ=",
+        "lastModified": 1727449771,
+        "narHash": "sha256-3vTaVmqX2NM/L02tOjGyhOVT9wDf7YSlBTLW4SJW2gM=",
         "owner": "fpiribauer",
         "repo": "nix-colors",
-        "rev": "9342e542f1b025c6538b2afa483f5abc1907b256",
+        "rev": "00d2b929e68ad8aefda5b008de316bdc53986ed6",
         "type": "github"
       },
       "original": {
