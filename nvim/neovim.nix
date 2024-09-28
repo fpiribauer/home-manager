@@ -72,6 +72,7 @@
         cmp-buffer
         cmp-path
         cmp-cmdline
+        cmp-git
         vim-vsnip
         cmp-vsnip
         lspsaga-nvim

@@ -53,7 +53,7 @@ lspconfig.rust_analyzer.setup {
 }
 -- Setup lspsaga
 require("lspsaga").setup({})
-vim.keymap.set({'n', 'i'}, '<leader>t', '<Cmd>Lspsaga term_toggle<CR>')
+vim.keymap.set({'n'}, '<leader>t', '<Cmd>Lspsaga term_toggle<CR>')
 
 
 -- Global mappings.
