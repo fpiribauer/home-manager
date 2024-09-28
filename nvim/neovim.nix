@@ -74,6 +74,7 @@
         cmp-cmdline
         vim-vsnip
         cmp-vsnip
+        lspsaga-nvim
         nvim-dap
         {
           plugin = nvim-dap-ui;

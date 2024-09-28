@@ -1,6 +1,23 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
-lspconfig.nixd.setup { capabilities = capabilities }
+lspconfig.nixd.setup {
+  capabilities = capabilities,
+  settings = {
+    nixd = {
+      nixpkgs = {
+        expr = "import <nixpkgs> { }",
+      },
+      formatting = {
+        command = { "nixfmt" },
+      },
+      options = {
+        home_manager = {
+          expr = '(builtins.getFlake ("git+file://" + toString /home/fpiribauer/.config/home-manager)).homeConfigurations."piri@T480piri".options',
+        },
+      },
+    },
+  },
+}
 lspconfig.pyright.setup { capabilities = capabilities }
 lspconfig.ruff_lsp.setup { capabilities = capabilities }
 lspconfig.svls.setup { capabilities = capabilities }
@@ -34,6 +51,9 @@ lspconfig.rust_analyzer.setup {
     },
   },
 }
+-- Setup lspsaga
+require("lspsaga").setup({})
+vim.keymap.set({'n', 'i'}, '<leader>t', '<Cmd>Lspsaga term_toggle<CR>')
 
 
 -- Global mappings.
@@ -48,6 +68,7 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
+    -- Setup lspsaga
     -- Enable completion triggered by <c-x><c-o>
     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
