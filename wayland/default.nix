@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   dotfiles,
   lib,
@@ -34,6 +35,13 @@ in
         };
       };
     };
+
+    home.packages = with pkgs; [
+      wl-clipboard
+      grim
+      slurp
+    ];
+
     home.file.".config/sway/config" = {
       text = builtins.readFile (mylib.utils.renderTemplate { template = "${dotfiles}/sway/config"; });
     };
