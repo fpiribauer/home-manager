@@ -64,15 +64,67 @@
             }
           ];
           profile.exec = [
-            "swaymsg workspace 1, move workspace to DP-6"
-            "swaymsg workspace 2, move workspace to DP-6"
-            "swaymsg workspace 3, move workspace to DP-6"
-            "swaymsg workspace 4, move workspace to DP-5"
-            "swaymsg workspace 5, move workspace to DP-5"
-            "swaymsg workspace 6, move workspace to DP-5"
-            "swaymsg workspace 7, move workspace to DP-6"
-            "swaymsg workspace 8, move workspace to DP-6"
-            "swaymsg workspace 9, move workspace to DP-6"
+            "swaymsg workspace 1  output DP-6"
+            "swaymsg workspace 2  output DP-6"
+            "swaymsg workspace 3  output DP-6"
+            "swaymsg workspace 4  output DP-5"
+            "swaymsg workspace 5  output DP-5"
+            "swaymsg workspace 6  output DP-5"
+            "swaymsg workspace 7  output DP-6"
+            "swaymsg workspace 8  output DP-6"
+            "swaymsg workspace 9  output DP-6"
+            "swaymsg workspace 10 output DP-5"
+            "swaymsg workspace 1,  move workspace to DP-6"
+            "swaymsg workspace 2,  move workspace to DP-6"
+            "swaymsg workspace 3,  move workspace to DP-6"
+            "swaymsg workspace 4,  move workspace to DP-5"
+            "swaymsg workspace 5,  move workspace to DP-5"
+            "swaymsg workspace 6,  move workspace to DP-5"
+            "swaymsg workspace 7,  move workspace to DP-6"
+            "swaymsg workspace 8,  move workspace to DP-6"
+            "swaymsg workspace 9,  move workspace to DP-6"
+            "swaymsg workspace 10, move workspace to DP-5"
+            "sleep 1 && swaymsg workspace 1"
+          ];
+        }
+        {
+          profile.name = "uniofficen2";
+          profile.outputs = [
+            {
+              criteria = "eDP-1";
+              status = "disable";
+            }
+            {
+              criteria = "DP-5";
+              status = "enable";
+              position = "0,0";
+            }
+            {
+              criteria = "DP-7";
+              status = "enable";
+              position = "1920,0";
+            }
+          ];
+          profile.exec = [
+            "swaymsg workspace 1  output DP-7"
+            "swaymsg workspace 2  output DP-7"
+            "swaymsg workspace 3  output DP-7"
+            "swaymsg workspace 4  output DP-5"
+            "swaymsg workspace 5  output DP-5"
+            "swaymsg workspace 6  output DP-5"
+            "swaymsg workspace 7  output DP-7"
+            "swaymsg workspace 8  output DP-7"
+            "swaymsg workspace 9  output DP-7"
+            "swaymsg workspace 10 output DP-5"
+            "swaymsg workspace 1,  move workspace to DP-7"
+            "swaymsg workspace 2,  move workspace to DP-7"
+            "swaymsg workspace 3,  move workspace to DP-7"
+            "swaymsg workspace 4,  move workspace to DP-5"
+            "swaymsg workspace 5,  move workspace to DP-5"
+            "swaymsg workspace 6,  move workspace to DP-5"
+            "swaymsg workspace 7,  move workspace to DP-7"
+            "swaymsg workspace 8,  move workspace to DP-7"
+            "swaymsg workspace 9,  move workspace to DP-7"
             "swaymsg workspace 10, move workspace to DP-5"
             "sleep 1 && swaymsg workspace 1"
           ];
@@ -103,15 +155,25 @@
             }
           ];
           profile.exec = [
-            "swaymsg workspace 1, move workspace to DP-3"
-            "swaymsg workspace 2, move workspace to DP-4"
-            "swaymsg workspace 3, move workspace to DP-5"
-            "swaymsg workspace 4, move workspace to DP-3"
-            "swaymsg workspace 5, move workspace to DP-3"
-            "swaymsg workspace 6, move workspace to DP-3"
-            "swaymsg workspace 7, move workspace to DP-3"
-            "swaymsg workspace 8, move workspace to DP-3"
-            "swaymsg workspace 9, move workspace to DP-3"
+            "swaymsg workspace 1,  output DP-3"
+            "swaymsg workspace 2,  output DP-4"
+            "swaymsg workspace 3,  output DP-5"
+            "swaymsg workspace 4,  output DP-3"
+            "swaymsg workspace 5,  output DP-3"
+            "swaymsg workspace 6,  output DP-3"
+            "swaymsg workspace 7,  output DP-3"
+            "swaymsg workspace 8,  output DP-3"
+            "swaymsg workspace 9,  output DP-3"
+            "swaymsg workspace 10, output DP-3"
+            "swaymsg workspace 1,  move workspace to DP-3"
+            "swaymsg workspace 2,  move workspace to DP-4"
+            "swaymsg workspace 3,  move workspace to DP-5"
+            "swaymsg workspace 4,  move workspace to DP-3"
+            "swaymsg workspace 5,  move workspace to DP-3"
+            "swaymsg workspace 6,  move workspace to DP-3"
+            "swaymsg workspace 7,  move workspace to DP-3"
+            "swaymsg workspace 8,  move workspace to DP-3"
+            "swaymsg workspace 9,  move workspace to DP-3"
             "swaymsg workspace 10, move workspace to DP-3"
             "sleep 1 && swaymsg workspace 1"
           ];
@@ -144,15 +206,25 @@
             }
           ];
           profile.exec = [
-            "swaymsg workspace 1, move workspace to DP-6"
-            "swaymsg workspace 2, move workspace to DP-7"
-            "swaymsg workspace 3, move workspace to DP-8"
-            "swaymsg workspace 4, move workspace to DP-6"
-            "swaymsg workspace 5, move workspace to DP-6"
-            "swaymsg workspace 6, move workspace to DP-6"
-            "swaymsg workspace 7, move workspace to DP-6"
-            "swaymsg workspace 8, move workspace to DP-6"
-            "swaymsg workspace 9, move workspace to DP-6"
+            "swaymsg workspace 1,  output DP-6"
+            "swaymsg workspace 2,  output DP-7"
+            "swaymsg workspace 3,  output DP-8"
+            "swaymsg workspace 4,  output DP-6"
+            "swaymsg workspace 5,  output DP-6"
+            "swaymsg workspace 6,  output DP-6"
+            "swaymsg workspace 7,  output DP-6"
+            "swaymsg workspace 8,  output DP-6"
+            "swaymsg workspace 9,  output DP-6"
+            "swaymsg workspace 10, output DP-6"
+            "swaymsg workspace 1,  move workspace to DP-6"
+            "swaymsg workspace 2,  move workspace to DP-7"
+            "swaymsg workspace 3,  move workspace to DP-8"
+            "swaymsg workspace 4,  move workspace to DP-6"
+            "swaymsg workspace 5,  move workspace to DP-6"
+            "swaymsg workspace 6,  move workspace to DP-6"
+            "swaymsg workspace 7,  move workspace to DP-6"
+            "swaymsg workspace 8,  move workspace to DP-6"
+            "swaymsg workspace 9,  move workspace to DP-6"
             "swaymsg workspace 10, move workspace to DP-6"
             "sleep 1 && swaymsg workspace 1"
           ];
@@ -167,15 +239,25 @@
             }
           ];
           profile.exec = [
-            "swaymsg workspace 1, move workspace to eDP-1"
-            "swaymsg workspace 2, move workspace to eDP-1"
-            "swaymsg workspace 3, move workspace to eDP-1"
-            "swaymsg workspace 4, move workspace to eDP-1"
-            "swaymsg workspace 5, move workspace to eDP-1"
-            "swaymsg workspace 6, move workspace to eDP-1"
-            "swaymsg workspace 7, move workspace to eDP-1"
-            "swaymsg workspace 8, move workspace to eDP-1"
-            "swaymsg workspace 9, move workspace to eDP-1"
+            "swaymsg workspace 1,  output eDP-1"
+            "swaymsg workspace 2,  output eDP-1"
+            "swaymsg workspace 3,  output eDP-1"
+            "swaymsg workspace 4,  output eDP-1"
+            "swaymsg workspace 5,  output eDP-1"
+            "swaymsg workspace 6,  output eDP-1"
+            "swaymsg workspace 7,  output eDP-1"
+            "swaymsg workspace 8,  output eDP-1"
+            "swaymsg workspace 9,  output eDP-1"
+            "swaymsg workspace 10, output eDP-1"
+            "swaymsg workspace 1,  move workspace to eDP-1"
+            "swaymsg workspace 2,  move workspace to eDP-1"
+            "swaymsg workspace 3,  move workspace to eDP-1"
+            "swaymsg workspace 4,  move workspace to eDP-1"
+            "swaymsg workspace 5,  move workspace to eDP-1"
+            "swaymsg workspace 6,  move workspace to eDP-1"
+            "swaymsg workspace 7,  move workspace to eDP-1"
+            "swaymsg workspace 8,  move workspace to eDP-1"
+            "swaymsg workspace 9,  move workspace to eDP-1"
             "swaymsg workspace 10, move workspace to eDP-1"
             "sleep 1 && swaymsg workspace 1"
           ];
