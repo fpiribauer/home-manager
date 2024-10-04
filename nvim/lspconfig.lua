@@ -55,7 +55,11 @@ lspconfig.rust_analyzer.setup {
   },
 }
 -- Setup lspsaga
-require("lspsaga").setup({})
+require("lspsaga").setup({
+  lightbulb = {
+    sign = false
+  }
+})
 vim.keymap.set({'n'}, '<leader>t', '<Cmd>Lspsaga term_toggle<CR>')
 
 
