@@ -60,7 +60,9 @@ in
       pyright
       pavucontrol
       rust-analyzer
-      tmux-sessionizer
+      (tmux-sessionizer.overrideAttrs (o: {
+        patches = (o.patches or []) ++ [./tmux-sessionizer.patch];
+      }))
       clang-tools_17
       vscode
       vscode-extensions.ms-vscode.cpptools

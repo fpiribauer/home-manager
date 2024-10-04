@@ -106,7 +106,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         group = augroup;
         buffer = ev.buf,
         callback = function ()
-            vim.lsp.buf.format({ bufnr = bufnr})
+            -- Disable Autoformatting on save for now...
+            -- vim.lsp.buf.format({ bufnr = bufnr})
         end,
     })
 
