@@ -1,5 +1,6 @@
 vim.wo.relativenumber = true
 vim.api.nvim_set_option_value("colorcolumn", "79", {})
+vim.api.nvim_set_option_value("signcolumn", "yes:1", {})
 
 vim.g.mapleader = " "
 
