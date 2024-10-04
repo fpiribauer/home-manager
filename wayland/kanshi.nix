@@ -46,6 +46,38 @@
           ];
         }
         {
+          profile.name = "unioffice2";
+          profile.outputs = [
+            {
+              criteria = "eDP-1";
+              status = "disable";
+            }
+            {
+              criteria = "DP-5";
+              status = "enable";
+              position = "0,0";
+            }
+            {
+              criteria = "DP-6";
+              status = "enable";
+              position = "1920,0";
+            }
+          ];
+          profile.exec = [
+            "swaymsg workspace 1, move workspace to DP-6"
+            "swaymsg workspace 2, move workspace to DP-6"
+            "swaymsg workspace 3, move workspace to DP-6"
+            "swaymsg workspace 4, move workspace to DP-5"
+            "swaymsg workspace 5, move workspace to DP-5"
+            "swaymsg workspace 6, move workspace to DP-5"
+            "swaymsg workspace 7, move workspace to DP-6"
+            "swaymsg workspace 8, move workspace to DP-6"
+            "swaymsg workspace 9, move workspace to DP-6"
+            "swaymsg workspace 10, move workspace to DP-5"
+            "sleep 1 && swaymsg workspace 1"
+          ];
+        }
+        {
           profile.name = "docked";
           profile.outputs = [
             {
