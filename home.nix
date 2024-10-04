@@ -61,7 +61,7 @@ in
       pavucontrol
       rust-analyzer
       (tmux-sessionizer.overrideAttrs (o: {
-        patches = (o.patches or []) ++ [./tmux-sessionizer.patch];
+        patches = (o.patches or [ ]) ++ [ ./tmux-sessionizer.patch ];
       }))
       clang-tools_17
       vscode
@@ -80,5 +80,11 @@ in
     initExtra = builtins.readFile (
       mylib.utils.renderTemplate { template = "${dotfiles}/bash/bashrc"; }
     );
+  };
+  programs.tmux = {
+    enable = true;
+    extraConfig = ''
+      bind-key C-j display-popup -E "tms switch"
+    '';
   };
 }
