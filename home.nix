@@ -41,6 +41,7 @@ in
       # Audio
       pipewire
       wireplumber
+      pavucontrol
       # User Program
       anki
       # pyenv -- time is not yet ripe enough for such powerful inventions
@@ -58,8 +59,8 @@ in
       nixfmt-rfc-style
       ruff-lsp
       pyright
-      pavucontrol
       rust-analyzer
+      ansible-language-server
       (tmux-sessionizer.overrideAttrs (o: {
         patches = (o.patches or [ ]) ++ [ ./tmux-sessionizer.patch ];
       }))
