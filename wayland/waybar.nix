@@ -1,8 +1,6 @@
 {
   config,
   lib,
-  pkgs,
-  pkgs-23-11,
   ...
 }@inputs:
 let
@@ -12,10 +10,9 @@ in
 {
   options = {
     cst.waybar.enable = lib.mkEnableOption "enables waybar";
-    cst.waybar.co2.enable = lib.mkEnableOption "enables co2 monitoring";
   };
   config = lib.mkIf config.cst.waybar.enable {
-    programs.waybar = rec {
+    programs.waybar = {
       enable = true;
       systemd.enable = true;
       style = waybarcss;
@@ -32,7 +29,7 @@ in
             "sway/mode"
             "cpu"
             "memory"
-            (lib.mkIf config.cst.waybar.co2.enable "custom/co2")
+            (lib.mkIf config.cst.scd30.enable "custom/co2")
           ];
           modules-center = [ ];
           modules-right = [
@@ -55,8 +52,8 @@ in
             max-length = 10;
           };
 
-          "custom/co2" = lib.mkIf config.cst.waybar.co2.enable {
-            exec = ./display.py;
+          "custom/co2" = lib.mkIf config.cst.scd30.enable {
+            exec = config.cst.scd30.displayScript;
             interval = 30;
             format = "co2 {}ppm";
           };

@@ -17,6 +17,7 @@ in
     #    ./wayland/sway.nix honestly its a mess, so we just use system way with its config...
     ./wayland
     ./wasm
+    ./scd30
     ./esp32/esp32.nix
   ];
   home.stateVersion = "24.11"; # Please read the comment before changing.
