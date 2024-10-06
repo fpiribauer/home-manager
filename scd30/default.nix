@@ -17,7 +17,7 @@
       );
       description = "Path to script that prints the current CO2 value in ppm";
       example = "/usr/bin/samplescript";
-      type = lib.types.str;
+      type = lib.types.path;
     };
   };
   config = lib.mkIf config.cst.scd30.enable {
