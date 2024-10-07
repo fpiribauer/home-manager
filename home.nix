@@ -55,6 +55,8 @@ in
           "CascadiaMono"
         ];
       })
+      # Compilers
+      zig
       # LSP Stuff
       nixd
       nixfmt-rfc-style
