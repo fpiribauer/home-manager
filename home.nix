@@ -20,7 +20,7 @@ in
     ./scd30
     ./esp32/esp32.nix
   ];
-  home.stateVersion = "24.11"; # Please read the comment before changing.
+  home.stateVersion = "24.05"; # Please read the comment before changing.
   home.file.".config/tms/config.toml" = {
     source = "${dotfiles}/tms/config.toml";
   };
