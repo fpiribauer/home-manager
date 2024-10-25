@@ -45,6 +45,7 @@ in
       pavucontrol
       # User Program
       anki
+      element-desktop
       # pyenv -- time is not yet ripe enough for such powerful inventions
       (nerdfonts.override {
         fonts = [
@@ -57,6 +58,7 @@ in
       })
       # Compilers
       zig
+      clang-tools_17
       # LSP Stuff
       nixd
       nixfmt-rfc-style
@@ -67,7 +69,6 @@ in
       (tmux-sessionizer.overrideAttrs (o: {
         patches = (o.patches or [ ]) ++ [ ./tmux-sessionizer.patch ];
       }))
-      clang-tools_17
       vscode
       vscode-extensions.ms-vscode.cpptools
       vscode-extensions.jnoortheen.nix-ide
