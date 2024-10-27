@@ -12,6 +12,9 @@ in
     cst.waybar.enable = lib.mkEnableOption "enables waybar";
   };
   config = lib.mkIf config.cst.waybar.enable {
+    home.shellAliases = {
+      rwaybar = "systemctl --user restart waybar";
+    };
     programs.waybar = {
       enable = true;
       systemd.enable = true;

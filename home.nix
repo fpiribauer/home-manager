@@ -66,9 +66,7 @@ in
       pyright
       rust-analyzer
       ansible-language-server
-      (tmux-sessionizer.overrideAttrs (o: {
-        patches = (o.patches or [ ]) ++ [ ./tmux-sessionizer.patch ];
-      }))
+      tmux-sessionizer
       vscode
       vscode-extensions.ms-vscode.cpptools
       vscode-extensions.jnoortheen.nix-ide
