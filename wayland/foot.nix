@@ -17,7 +17,7 @@ in
       settings = {
         main = {
           term = "xterm-256color";
-          font = "CaskaydiaMonoNerdFontPropo:size=10";
+          font = "JetBrainsMonoNerdFontPropo:size=10";
         };
         # Use the color mapping from https://github.com/tinted-theming/tinted-foot/blob/main/templates/
         colors =
