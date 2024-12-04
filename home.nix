@@ -50,6 +50,7 @@ in
       nerd-fonts.fira-code
       nerd-fonts.jetbrains-mono
       nerd-fonts.iosevka
+      nerd-fonts.caskaydia-mono
       # Compilers
       zig
       clang-tools_17
