@@ -22,7 +22,7 @@ lspconfig.nixd.setup {
   },
 }
 lspconfig.pyright.setup { capabilities = capabilities }
-lspconfig.ruff_lsp.setup { capabilities = capabilities }
+lspconfig.ruff.setup { capabilities = capabilities }
 lspconfig.svls.setup { capabilities = capabilities }
 lspconfig.clangd.setup { capabilities = capabilities }
 lspconfig.rust_analyzer.setup {
