@@ -47,15 +47,9 @@ in
       anki
       element-desktop
       # pyenv -- time is not yet ripe enough for such powerful inventions
-      (nerdfonts.override {
-        fonts = [
-          "FiraCode"
-          "JetBrainsMono"
-          "Iosevka"
-          "CascadiaCode"
-          "CascadiaMono"
-        ];
-      })
+      nerd-fonts.fira-code
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.iosevka
       # Compilers
       zig
       clang-tools_17
@@ -64,7 +58,7 @@ in
       nixfmt-rfc-style
       ruff-lsp
       pyright
-      rust-analyzer
+      rustup
       ansible-language-server
       tmux-sessionizer
       vscode
