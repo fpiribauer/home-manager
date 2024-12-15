@@ -57,6 +57,7 @@ in
       # LSP Stuff
       nixd
       nixfmt-rfc-style
+      ruff
       ruff-lsp
       pyright
       rustup
