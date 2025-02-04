@@ -272,32 +272,32 @@
               position = "2560,900";
             }
             {
-              criteria = "HDMI-A-1";
+              criteria = "DP-1";
               status = "enable";
               position = "0,0";
             }
           ];
           profile.exec = [
-            "swaymsg workspace 1  output HDMI-A-1"
-            "swaymsg workspace 2  output HDMI-A-1"
-            "swaymsg workspace 3  output HDMI-A-1"
-            "swaymsg workspace 4  output HDMI-A-1"
+            "swaymsg workspace 1  output DP-1"
+            "swaymsg workspace 2  output DP-1"
+            "swaymsg workspace 3  output DP-1"
+            "swaymsg workspace 4  output DP-1"
             "swaymsg workspace 5  output eDP-1"
             "swaymsg workspace 6  output eDP-1"
             "swaymsg workspace 7  output eDP-1"
             "swaymsg workspace 8  output eDP-1"
-            "swaymsg workspace 9  output HDMI-A-1"
-            "swaymsg workspace 10 output HDMI-A-1"
-            "swaymsg workspace 1,  move workspace to HDMI-A-1"
-            "swaymsg workspace 2,  move workspace to HDMI-A-1"
-            "swaymsg workspace 3,  move workspace to HDMI-A-1"
-            "swaymsg workspace 4,  move workspace to HDMI-A-1"
+            "swaymsg workspace 9  output DP-1"
+            "swaymsg workspace 10 output DP-1"
+            "swaymsg workspace 1,  move workspace to DP-1"
+            "swaymsg workspace 2,  move workspace to DP-1"
+            "swaymsg workspace 3,  move workspace to DP-1"
+            "swaymsg workspace 4,  move workspace to DP-1"
             "swaymsg workspace 5,  move workspace to eDP-1"
             "swaymsg workspace 6,  move workspace to eDP-1"
             "swaymsg workspace 7,  move workspace to eDP-1"
             "swaymsg workspace 8,  move workspace to eDP-1"
-            "swaymsg workspace 9,  move workspace to HDMI-A-1"
-            "swaymsg workspace 10, move workspace to HDMI-A-1"
+            "swaymsg workspace 9,  move workspace to DP-1"
+            "swaymsg workspace 10, move workspace to DP-1"
             "sleep 1 && swaymsg workspace 1"
           ];
         }
