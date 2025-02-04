@@ -73,10 +73,20 @@
         ];
         extraSpecialArgs = inputs;
       };
+      raicoon-config = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        modules = [
+          ./hosts/piribauer-raicoon
+          ./home.nix
+        ];
+        extraSpecialArgs = inputs;
+      };
     in
     {
       homeConfigurations."piri@T480piri" = private-config;
       homeConfigurations."fpiribauer@piribauer-laptop" = work-config;
+      homeConfigurations."piribauer@piribauer-raicoon" = raicoon-config;
       tests = import ./tests (inputs // private-config);
     };
 }
