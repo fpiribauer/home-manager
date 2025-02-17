@@ -44,6 +44,7 @@ in
       wireplumber
       pavucontrol
       # User Program
+      p7zip
       anki
       element-desktop
       # pyenv -- time is not yet ripe enough for such powerful inventions
@@ -71,6 +72,11 @@ in
       ansible-lint
       # Mail
       thunderbird
+
+      # Custom Scripts
+      (writeShellScriptBin "pyenva" ''
+        . "$HOME/.pyenv/versions/$(pyenv local)/bin/activate"
+      '')
     ]
   );
   programs.home-manager.enable = true;
