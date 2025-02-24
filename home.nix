@@ -21,9 +21,6 @@ in
     ./esp32/esp32.nix
   ];
   home.stateVersion = "24.05"; # Please read the comment before changing.
-  home.file.".config/tms/config.toml" = {
-    source = "${dotfiles}/tms/config.toml";
-  };
 
   home.sessionPath = [
     "/opt/intelFPGA/20.1/modelsim_ase/bin"

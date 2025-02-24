@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, dotfiles, ... }:
 {
 
   cst.wayland.enable = true;
@@ -14,4 +14,7 @@
       runelite
     ]
   );
+  home.file.".config/tms/config.toml" = {
+    source = "${dotfiles}/tms/config.toml";
+  };
 }

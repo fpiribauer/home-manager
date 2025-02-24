@@ -12,4 +12,12 @@
     jq
   ];
 
+  home.file.".config/tms/config.toml" = {
+    text = ''
+    [[search_dirs]]
+    path = "/home/piribauer/raicoon"
+    depth = 3
+    '';
+  };
+
 }
