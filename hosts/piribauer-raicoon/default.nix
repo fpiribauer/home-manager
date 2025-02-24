@@ -17,6 +17,9 @@
     [[search_dirs]]
     path = "/home/piribauer/raicoon"
     depth = 3
+    [[search_dirs]]
+    path = "/home/piribauer/.config/home-manager"
+    depth = 1
     '';
   };
 
