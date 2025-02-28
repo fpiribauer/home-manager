@@ -9,6 +9,7 @@
       defaultEditor = true;
       vimAlias = true;
       plugins = with pkgs.vimPlugins; [
+        fugitivee
         neo-tree-nvim # File-browser
         vimwiki # Wiki
         luasnip
@@ -67,6 +68,13 @@
           plugin = nvim-cmp;
           type = "lua";
           config = rf ./nvim-cmp.lua;
+        }
+        {
+          plugin = nvim-surround;
+          type = "lua";
+          config = ''
+            require("nvim-surround").setup({})
+          '';
         }
         cmp-nvim-lsp
         cmp-buffer
