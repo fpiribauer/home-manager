@@ -9,7 +9,12 @@
       defaultEditor = true;
       vimAlias = true;
       plugins = with pkgs.vimPlugins; [
-        fugitivee
+        fugitive
+        {
+          plugin = gitsigns-nvim;
+          type = "lua";
+          config = rf ./gitsigns.lua;
+        }
         neo-tree-nvim # File-browser
         vimwiki # Wiki
         luasnip
