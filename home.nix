@@ -59,7 +59,6 @@ in
       nixd
       nixfmt-rfc-style
       ruff
-      ruff-lsp
       pyright
       rustup
       ansible-language-server
