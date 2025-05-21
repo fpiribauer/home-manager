@@ -24,7 +24,6 @@ in
 
   home.sessionPath = [
     "/opt/intelFPGA/20.1/modelsim_ase/bin"
-    "$HOME/.pyenv/bin"
   ];
   home.sessionVariables = {
     _JAVA_AWT_WM_NONREPARENTING = 1; # Makes Java GUIs work nice with sway
@@ -44,15 +43,19 @@ in
       p7zip
       anki
       element-desktop
-      # pyenv -- time is not yet ripe enough for such powerful inventions
       nerd-fonts.fira-code
       nerd-fonts.jetbrains-mono
       nerd-fonts.iosevka
       nerd-fonts.caskaydia-mono
-      # Compilers
+      # Mail
+      thunderbird
+
+      # Developer stuff
+      uv
+      ## Compilers
       zig
       clang-tools_17
-      # LSP Stuff
+      ## LSP Stuff
       nixd
       nixfmt-rfc-style
       ruff
@@ -64,16 +67,9 @@ in
       vscode
       vscode-extensions.ms-vscode.cpptools
       vscode-extensions.jnoortheen.nix-ide
-      # Devops
+      ## Devops
       ansible
       ansible-lint
-      # Mail
-      thunderbird
-
-      # Custom Scripts
-      (writeShellScriptBin "pyenva" ''
-        . "$HOME/.pyenv/versions/$(pyenv local)/bin/activate"
-      '')
     ]
   );
   programs.home-manager.enable = true;
