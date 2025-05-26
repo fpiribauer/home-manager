@@ -40,6 +40,7 @@ in
       wireplumber
       pavucontrol
       # User Program
+      brave
       p7zip
       anki
       element-desktop
