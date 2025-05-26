@@ -11,8 +11,10 @@
   config = {
     services.mako = lib.mkIf config.cst.notify.enable {
       enable = true;
-      anchor = "top-center";
-      defaultTimeout = 5000;
+      settings = {
+       anchor = "top-center";
+       default-timeout = 5000;
+      };
     };
   };
 }
