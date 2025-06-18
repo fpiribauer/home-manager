@@ -70,6 +70,7 @@ in
       ## Devops
       ansible
       ansible-lint
+      jinja2-cli
     ]
   );
   programs.home-manager.enable = true;
