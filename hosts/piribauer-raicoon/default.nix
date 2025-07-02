@@ -21,6 +21,9 @@
     path = "/home/piribauer/my_demos"
     depth = 1
     [[search_dirs]]
+    path = "/home/piribauer/git"
+    depth = 1
+    [[search_dirs]]
     path = "/home/piribauer/.config/home-manager"
     depth = 1
     '';

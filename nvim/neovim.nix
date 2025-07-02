@@ -111,6 +111,13 @@
             end
           '';
         }
+        {
+          plugin = claude-code-nvim;
+          type = "lua";
+          config = ''
+            require('claude-code').setup()
+          '';
+        }
       ];
       extraLuaConfig = rf ./config.lua;
       extraConfig = rf ./config.vimrc;

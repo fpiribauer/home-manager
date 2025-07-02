@@ -53,6 +53,7 @@ in
 
       # Developer stuff
       uv
+      claude-code
       ## Compilers
       zig
       clang-tools_17
