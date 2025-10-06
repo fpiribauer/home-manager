@@ -56,14 +56,12 @@ in
       claude-code
       ## Compilers
       zig
-      clang-tools_17
       ## LSP Stuff
       nixd
       nixfmt-rfc-style
       ruff
       pyright
       rustup
-      ansible-language-server
       tmux-sessionizer
       vscode
       vscode-extensions.ms-vscode.cpptools
