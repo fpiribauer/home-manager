@@ -1,63 +1,79 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local lspconfig = require('lspconfig')
-lspconfig.nixd.setup {
-  capabilities = capabilities,
-  settings = {
-    nixd = {
-      nixpkgs = {
-        expr = "import <nixpkgs> { }",
-      },
-      formatting = {
-        command = { "nixfmt" },
-      },
-      options = {
-        home_manager = {
-          expr = '(builtins.getFlake ("git+file://" + toString /home/piri/.config/home-manager)).homeConfigurations."piri@T480piri".options',
-        },
-        home_manager2 = {
-          expr = '(builtins.getFlake ("git+file://" + toString /home/fpiribauer/.config/home-manager)).homeConfigurations."fpiribauer@piribauer-laptop".options',
-        },
-      },
-    },
-  },
-}
-lspconfig.pyright.setup { capabilities = capabilities }
-lspconfig.ruff.setup { capabilities = capabilities }
-lspconfig.svls.setup { capabilities = capabilities }
-lspconfig.clangd.setup { capabilities = capabilities }
-lspconfig.rust_analyzer.setup {
-  -- Server-specific settings. See `:help lspconfig-setup`
-  capabilities = capabilities,
-  settings = {
-    ['rust-analyzer'] = {
-      cargo = {
-        buildScripts = {
-          enable = true,
-        },
-        extraEnv = {
-          ["CARGO_PROFILE_RUST_ANALYZER_INHERITS"] = "dev",
-        },
-        extraArgs = { "--profile", "rust-analyzer" },
-        features = "all",
-      },
-      check = {
-        overrideCommand = { "cargo", "clippy", "--message-format=json", "--all-targets", "--all-features" },
-      },
-      rustfmt = {
-        extraArgs = { "+nightly" },
-      },
-      procMacro = {
-        attributes = {
-          enable = true,
+local lspconfig_util = require("lspconfig.util")
+local servers = {
+  {
+    "nixd",
+    {
+      capabilities = capabilities,
+      settings = {
+        nixd = {
+          nixpkgs = {
+            expr = "import <nixpkgs> { }",
+          },
+          formatting = {
+            command = { "nixfmt" },
+          },
+          options = {
+            home_manager = {
+              expr = '(builtins.getFlake ("git+file://" + toString /home/piri/.config/home-manager)).homeConfigurations."piri@T480piri".options',
+            },
+            home_manager2 = {
+              expr = '(builtins.getFlake ("git+file://" + toString /home/fpiribauer/.config/home-manager)).homeConfigurations."fpiribauer@piribauer-laptop".options',
+            },
+          },
         },
       },
     },
   },
+  { "pyright", { capabilities = capabilities } },
+  { "ruff",   { capabilities = capabilities } },
+  { "svls",   { capabilities = capabilities } },
+  { "clangd", { capabilities = capabilities } },
+  {
+    "rust_analyzer",
+    {
+      capabilities = capabilities,
+      settings = {
+        ["rust-analyzer"] = {
+          cargo = {
+            buildScripts = { enable = true },
+            extraEnv = {
+              ["CARGO_PROFILE_RUST_ANALYZER_INHERITS"] = "dev",
+            },
+            extraArgs = { "--profile", "rust-analyzer" },
+            features = "all",
+          },
+          check = {
+            overrideCommand = { "cargo", "clippy", "--message-format=json", "--all-targets", "--all-features" },
+          },
+          rustfmt = {
+            extraArgs = { "+nightly" },
+          },
+          procMacro = {
+            attributes = {
+              enable = true,
+            },
+          },
+        },
+      },
+    },
+  },
+  {
+    "ansiblels",
+    {
+      filetypes = { "yaml", "yml", "ansible" },
+      root_dir = lspconfig_util.root_pattern("roles", "playbooks"),
+    }
+  },
 }
-lspconfig.ansiblels.setup({
-  filetypes = { "yaml", "yml", "ansible" },
-  root_dir = lspconfig.util.root_pattern("roles", "playbooks")
-})
+
+for _, srv in ipairs(servers) do
+  local name = srv[1]
+  local config = srv[2]
+
+  vim.lsp.config(name, config)
+  vim.lsp.enable(name)
+end
 
 -- Setup lspsaga
 require("lspsaga").setup({
