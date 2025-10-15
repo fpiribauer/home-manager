@@ -56,6 +56,7 @@ in
       claude-code
       ## Compilers
       zig
+      lean4
       ## LSP Stuff
       nixd
       nixfmt-rfc-style

@@ -3,7 +3,7 @@
 
   cst.wayland.enable = true;
   cst.wasm.enable = true;
-  cst.scd30.enable = true;
+  cst.scd30.enable = false;
 
   home.username = "piri";
   home.homeDirectory = "/home/piri";
