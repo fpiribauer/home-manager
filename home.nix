@@ -56,7 +56,7 @@ in
       claude-code
       ## Compilers
       zig
-      lean4
+      elan
       ## LSP Stuff
       nixd
       nixfmt-rfc-style
@@ -71,6 +71,8 @@ in
       ansible
       ansible-lint
       jinja2-cli
+      kubectl
+      k9s
     ]
   );
   programs.home-manager.enable = true;
