@@ -73,6 +73,7 @@ in
       jinja2-cli
       kubectl
       k9s
+      terraform
     ]
   );
   programs.home-manager.enable = true;
