@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 {
@@ -16,6 +17,8 @@
       includes = [ "config.local" ];
       settings."*" = {
         AddKeysToAgent = "yes";
+        # Arch has no xauth installed and ssh looks for /usr/bin/xauth by default
+        XAuthLocation = "${pkgs.xauth}/bin/xauth";
       };
     };
   };

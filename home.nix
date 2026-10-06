@@ -31,6 +31,7 @@ in
       nerd-fonts.caskaydia-mono
 
       tmux-sessionizer
+      xauth # X11 forwarding (ssh -X, tilab-mcp GUI windows)
       ## LSP Stuff (for editing this repo)
       nixd
       nixfmt
