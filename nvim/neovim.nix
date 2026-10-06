@@ -85,9 +85,14 @@
         cmp-buffer
         cmp-path
         cmp-cmdline
-        cmp-git
-        vim-vsnip
-        cmp-vsnip
+        {
+          plugin = cmp-git;
+          type = "lua";
+          config = ''
+            require("cmp_git").setup()
+          '';
+        }
+        cmp_luasnip
         lspsaga-nvim
         nvim-dap
         {

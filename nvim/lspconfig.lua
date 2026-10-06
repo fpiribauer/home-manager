@@ -1,5 +1,4 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local lspconfig_util = require("lspconfig.util")
 local servers = {
   {
     "nixd",
@@ -8,7 +7,7 @@ local servers = {
       settings = {
         nixd = {
           nixpkgs = {
-            expr = "import <nixpkgs> { }",
+            expr = 'import (builtins.getFlake ("git+file://" + toString /home/piri/.config/home-manager)).inputs.nixpkgs { }',
           },
           formatting = {
             command = { "nixfmt" },
@@ -55,13 +54,6 @@ local servers = {
       },
     },
   },
-  {
-    "ansiblels",
-    {
-      filetypes = { "yaml", "yml", "ansible" },
-      root_dir = lspconfig_util.root_pattern("roles", "playbooks"),
-    }
-  },
 }
 
 for _, srv in ipairs(servers) do
@@ -84,8 +76,8 @@ vim.keymap.set({'n'}, '<leader>t', '<Cmd>Lspsaga term_toggle<CR>')
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev(); vim.cmd.normal('zz') end)
-vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next(); vim.cmd.normal('zz') end)
+vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1 }); vim.cmd.normal('zz') end)
+vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1 }); vim.cmd.normal('zz') end)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys

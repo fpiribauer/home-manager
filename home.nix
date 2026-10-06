@@ -36,6 +36,7 @@ in
       nixfmt
     ]
   );
+  home.sessionPath = [ "$HOME/.local/bin" ];
   programs.home-manager.enable = true;
   programs.bash = {
     enable = true;
@@ -45,9 +46,13 @@ in
   };
   programs.tmux = {
     enable = true;
+    terminal = "tmux-256color";
     extraConfig = ''
       bind-key C-j display-popup -E "tms switch"
       bind-key C-n display-popup -E "tms"
+
+      # foot sets TERM=xterm-256color, whose terminfo doesn't advertise 24-bit color
+      set -as terminal-features ",xterm-256color:RGB"
 
       set -g mouse on
       # to enable mouse scroll, see https://github.com/tmux/tmux/issues/145#issuecomment-150736967

@@ -5,13 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-if [[ -z "${SSH_CONNECTION}" ]]; then
-    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-    if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
-        export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent"
-    fi
-fi
-
 COLOR_USER='{{ color.bash.bright_white }}'
 COLOR_ROOT='{{ color.bash.bright_red }}'
 COLOR_HOST='{{ color.bash.bright_green }}'
@@ -50,7 +43,6 @@ PROMPT_COMMAND=prompt
 
 
 alias ls='ls --color=auto'
-export PATH="$HOME/.nix-profile/bin:$PATH"
 
 alias vg="valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose"
 
