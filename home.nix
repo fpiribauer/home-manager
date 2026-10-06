@@ -2,7 +2,6 @@
   pkgs,
   dotfiles,
   nix-colors,
-  nix-index-database,
   ...
 }@inputs:
 let
@@ -11,69 +10,31 @@ in
 {
   imports = [
     nix-colors.homeManagerModules.default
-    nix-index-database.homeModules.nix-index
     ./ssh
     ./nvim/neovim.nix
-    #    ./wayland/sway.nix honestly its a mess, so we just use system way with its config...
-    ./wayland
-    ./wasm
-    ./scd30
-    ./esp32/esp32.nix
+    ./foot.nix
   ];
-  home.stateVersion = "24.05"; # Please read the comment before changing.
 
-  home.sessionPath = [
-    "/opt/intelFPGA/20.1/modelsim_ase/bin"
-  ];
-  home.sessionVariables = {
-    _JAVA_AWT_WM_NONREPARENTING = 1; # Makes Java GUIs work nice with sway
-  };
+  # Not on NixOS (Arch): sets XDG_DATA_DIRS etc. so desktop entries and fonts are found
+  targets.genericLinux.enable = true;
 
   #colorScheme = nix-colors.colorSchemes.base24.dracula;
   colorScheme = nix-colors.colorSchemes.base16.gruvbox-material-dark-medium;
   fonts.fontconfig.enable = true;
+  cst.foot.enable = true;
+  # GUI apps like chromium and code (OSS) come from pacman, nix GUI apps need nixGL on Arch
   home.packages = (
     with pkgs;
     [
-      # Audio
-      pipewire
-      wireplumber
-      pavucontrol
-      # User Program
-      brave
-      p7zip
-      anki
-      element-desktop
       nerd-fonts.fira-code
       nerd-fonts.jetbrains-mono
       nerd-fonts.iosevka
       nerd-fonts.caskaydia-mono
-      # Mail
-      thunderbird
 
-      # Developer stuff
-      uv
-      claude-code
-      ## Compilers
-      zig
-      elan
-      ## LSP Stuff
-      nixd
-      nixfmt-rfc-style
-      ruff
-      pyright
-      rustup
       tmux-sessionizer
-      vscode
-      vscode-extensions.ms-vscode.cpptools
-      vscode-extensions.jnoortheen.nix-ide
-      ## Devops
-      ansible
-      ansible-lint
-      jinja2-cli
-      kubectl
-      k9s
-      terraform
+      ## LSP Stuff (for editing this repo)
+      nixd
+      nixfmt
     ]
   );
   programs.home-manager.enable = true;

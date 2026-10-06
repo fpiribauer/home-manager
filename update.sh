@@ -1,2 +1,6 @@
 #!/usr/bin/env bash
-nix flake update && home-manager switch && git add . && git commit -am "update flake" && git push
+set -e
+cd "$(dirname "$0")"
+nix flake update
+home-manager switch --flake .
+git add . && git commit -m "update flake" && git push

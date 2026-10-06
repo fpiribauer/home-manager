@@ -15,10 +15,7 @@ local servers = {
           },
           options = {
             home_manager = {
-              expr = '(builtins.getFlake ("git+file://" + toString /home/piri/.config/home-manager)).homeConfigurations."piri@T480piri".options',
-            },
-            home_manager2 = {
-              expr = '(builtins.getFlake ("git+file://" + toString /home/fpiribauer/.config/home-manager)).homeConfigurations."fpiribauer@piribauer-laptop".options',
+              expr = '(builtins.getFlake ("git+file://" + toString /home/piri/.config/home-manager)).homeConfigurations."piri@piriT480s".options',
             },
           },
         },

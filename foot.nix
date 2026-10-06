@@ -1,11 +1,12 @@
 {
-  colors,
+  pkgs,
+  nix-colors,
   lib,
   config,
   ...
 }@inputs:
 let
-  mylib = import ../mylib inputs;
+  mylib = import ./mylib inputs;
 in
 {
   options = {

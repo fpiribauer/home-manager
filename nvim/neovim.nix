@@ -9,7 +9,7 @@
       defaultEditor = true;
       vimAlias = true;
       plugins = with pkgs.vimPlugins; [
-        fugitive
+        vim-fugitive
         {
           plugin = gitsigns-nvim;
           type = "lua";
@@ -119,7 +119,7 @@
           '';
         }
       ];
-      extraLuaConfig = rf ./config.lua;
+      initLua = rf ./config.lua;
       extraConfig = rf ./config.vimrc;
       extraPackages = with pkgs; [
         ripgrep # Requirement for telescope
