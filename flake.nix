@@ -7,10 +7,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dotfiles = {
-      url = "github:fpiribauer/dotfiles";
-      flake = false;
-    };
     schemes = {
       url = "github:tinted-theming/schemes";
       flake = false;

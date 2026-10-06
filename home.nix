@@ -1,6 +1,5 @@
 {
   pkgs,
-  dotfiles,
   nix-colors,
   ...
 }@inputs:
@@ -41,7 +40,7 @@ in
   programs.bash = {
     enable = true;
     initExtra = builtins.readFile (
-      mylib.utils.renderTemplate { template = "${dotfiles}/bash/bashrc"; }
+      mylib.utils.renderTemplate { template = ./bash/bashrc; }
     );
   };
   programs.tmux = {

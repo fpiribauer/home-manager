@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "dotfiles": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1747837499,
-        "narHash": "sha256-QpzwfNVmO7UH4lx5ofcs9ABxlXWQo/S4sfqx6Xk4eqw=",
-        "owner": "fpiribauer",
-        "repo": "dotfiles",
-        "rev": "1686a32d52221df715f618ea824c8c48f21cf218",
-        "type": "github"
-      },
-      "original": {
-        "owner": "fpiribauer",
-        "repo": "dotfiles",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -94,7 +78,6 @@
     },
     "root": {
       "inputs": {
-        "dotfiles": "dotfiles",
         "home-manager": "home-manager",
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs",
