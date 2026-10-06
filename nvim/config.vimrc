@@ -3,6 +3,8 @@
 set mouse=
 set clipboard+=unnamedplus
 set cursorlineopt=number
+set scrolloff=5
+set undofile
 if has("autocmd")
         au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
